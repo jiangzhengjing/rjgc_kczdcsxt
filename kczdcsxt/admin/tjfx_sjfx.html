@@ -79,7 +79,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-           <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -96,28 +96,28 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="tkgl_add_tiku.php">新增题库</a>
+                                        <a href="blank.html">新增题库</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_tikulist.php">题库列表</a>
+                                        <a href="blank.html">题库列表</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_shiti.php">新增试题</a>
+                                        <a href="tkgl_add_shiti.html">新增试题</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_piliangdaorushiti.php">导入试题</a>
+                                        <a href="blank.html">导入试题</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_guanlishiti.php">管理试题</a>
+                                        <a href="blank.html">管理试题</a>
                                     </li>
                                </ul>
                         </li>
@@ -191,7 +191,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">管理试题</h1>
+                        <h1 class="page-header">试卷分析</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -203,12 +203,17 @@
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">所属题库</th>
-                                            <th class="table-ctt-stlx">试题类型</th>
-                                            <th class="table-ctt-stnd">试题难度</th>
-                                            <th class="table-ctt-stzt">试题状态</th>
-                                            <th class="table-ctt-sttg">试题题干</th>
-                                            <th class="table-ctt-cjr">创建人</th>
+                                            <th class="table-ctt-sstk">试卷名称</th>
+                                            <th class="table-ctt-stlx">时间设定</th>
+                                            <th class="table-ctt-stnd">考试时长</th>
+                                            <th class="table-ctt-stzt">试卷类型</th>
+                                            <th class="table-ctt-sttg">卷面总分</th>
+                                            <th class="table-ctt-cjr">及格分数</th>
+                                             <th class="table-ctt-cjr">最高分</th>
+                                             <th class="table-ctt-cjr">最低分</th>
+                                             <th class="table-ctt-cjr">平均分</th>
+                                             <th class="table-ctt-cjr">及格人数</th>
+                                             <th class="table-ctt-cjr">参加人数</th>
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
@@ -219,7 +224,12 @@
                                             <td class="hide-sm-only">多选题</td>
                                             <td class="hide-sm-only">常规</td>
                                             <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">加强社会治理制度建设，完善党委领导</td>
+                                            <td class="hide-sm-only">0</td>
+                                             <td class="hide-sm-only">0</td>
+                                              <td class="hide-sm-only">0</td>
+                                               <td class="hide-sm-only">0</td>
+                                                <td class="hide-sm-only">0</td>
+                                                 <td class="hide-sm-only">0</td>
                                             <td class="hide-sm-only">admin3</td>
                                             <td>
                                                 <div class="btn-toolbar">
@@ -237,7 +247,12 @@
                                             <td class="hide-sm-only">多选题</td>
                                             <td class="hide-sm-only">常规</td>
                                             <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">加强社会治理制度建设，完善党委领导</td>
+                                            <td class="hide-sm-only">0</td>
+                                             <td class="hide-sm-only">0</td>
+                                              <td class="hide-sm-only">0</td>
+                                               <td class="hide-sm-only">0</td>
+                                                <td class="hide-sm-only">0</td>
+                                             <td class="hide-sm-only">0</td>
                                             <td class="hide-sm-only">admin3</td>
                                             <td>
                                                 <div class="btn-toolbar">
@@ -255,7 +270,12 @@
                                             <td class="hide-sm-only">多选题</td>
                                             <td class="hide-sm-only">常规</td>
                                             <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">加强社会治理制度建设，完善党委领导</td>
+                                            <td class="hide-sm-only">0</td>
+                                             <td class="hide-sm-only">0</td>
+                                              <td class="hide-sm-only">0</td>
+                                               <td class="hide-sm-only">0</td>
+                                                <td class="hide-sm-only">0</td>
+                                                 <td class="hide-sm-only">0</td>
                                             <td class="hide-sm-only">admin3</td>
                                             <td>
                                                 <div class="btn-toolbar">
@@ -273,7 +293,12 @@
                                             <td class="hide-sm-only">多选题</td>
                                             <td class="hide-sm-only">常规</td>
                                             <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">加强社会治理制度建设，完善党委领导</td>
+                                            <td class="hide-sm-only">0</td>
+                                             <td class="hide-sm-only">0</td>
+                                              <td class="hide-sm-only">0</td>
+                                               <td class="hide-sm-only">0</td>
+                                                <td class="hide-sm-only">0</td>
+                                                 <td class="hide-sm-only">0</td>
                                             <td class="hide-sm-only">admin3</td>
                                             <td>
                                                 <div class="btn-toolbar">

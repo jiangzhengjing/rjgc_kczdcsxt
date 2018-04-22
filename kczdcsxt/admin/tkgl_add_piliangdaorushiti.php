@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -79,7 +79,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-          <!-- /.navbar-top-links -->
+           <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -191,7 +191,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">新增题库</h1>
+                        <h1 class="page-header">批量导入试题</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -200,37 +200,42 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            新增题库
+                            批量导入试题
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tj.php" method="post">
+                                    <form class="form form-horizontal" action="welcome.php" method="post">
                                        <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库名称</label>
-                                            <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">状态</label>
+                                            <label for="stlx" class="col-sm-3 form-label">所属题库</label>
                                             
                                             <div class="col-sm-9">
-                                                 <select name="tiku_zhuangtai" class="form-control">
-                                                      <option  value="开放" checked="checked">开放</option>
-                                                      <option  value="关闭">关闭</option>
-                                      
+                                                 <select class="form-control">
+                                                      <option >1</option>
+                                                      <option >2</option>
                                                  </select>
                                             </div>
+                                            
                                         </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库说明</label>
+                                         <div class="form-group">
+                                            <label for="sjwj" class="col-sm-3 form-label">数据文件</label>
                                             <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_shuoming">
+                                                 <input type="file">
                                             </div>
+                                            
                                         </div>
-                                   
+                                       <div class="form-group">
+                                            <label for="stlx" class="col-sm-3 form-label">重复数据</label>
+                                            
+                                            <div class="col-sm-9">
+                                                 <select class="form-control">
+                                                      <option >自动去除重复试题</option>
+                                                      <option >忽略重复试题，全部导入</option>
+                                                 </select>
+                                            </div>
+                                            
+                                        </div>
                                    
                                         </div>
                                    

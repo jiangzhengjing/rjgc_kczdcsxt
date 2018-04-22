@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,20 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!-- jzj-style -->
-    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
@@ -30,7 +24,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.html">在线考试系统</a>
@@ -79,7 +73,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-          <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -186,88 +180,23 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">新增题库</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
-                </div>
-                <!-- /.row -->
-                 <div class="row">
+            <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            新增题库
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tj.php" method="post">
-                                       <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库名称</label>
-                                            <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">状态</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 <select name="tiku_zhuangtai" class="form-control">
-                                                      <option  value="开放" checked="checked">开放</option>
-                                                      <option  value="关闭">关闭</option>
-                                      
-                                                 </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库说明</label>
-                                            <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_shuoming">
-                                            </div>
-                                        </div>
-                                   
-                                   
-                                        </div>
-                                   
-                                      
-                                       
-                                 
-                                     
-                                 
-                                     <div class="col-lg-12">
-                                      
-                                     
-                                       <button type="submit" class="btn btn-default" style=" margin-left: 330px;">提交</button>
-                                       
-                                        <button type="reset" class="btn btn-default" style=" margin-left: 30px;">撤销</button>
-                                       
-                                     </div>
-                                    </form>
-                                </div>
-                              
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                    <h1 class="page-header">在线考试系统</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
+            <!-- /.row -->
+
+           
         </div>
         <!-- /#page-wrapper -->
 
     </div>
     <!-- /#wrapper -->
 
+    
     <!-- jQuery -->
     <script src="../style/jquery/jquery.min.js"></script>
 
