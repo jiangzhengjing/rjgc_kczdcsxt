@@ -102,79 +102,38 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="tkgl_add_tiku.php">新增题库</a>
+                                        <a href="wdks_wdks.php">我的试卷</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_tikulist.php">题库列表</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_shiti.php">新增试题</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_piliangdaorushiti.php">导入试题</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_guanlishiti.php">管理试题</a>
+                                        <a href="wdks_lsks.php">历史考试</a>
                                     </li>
                                </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">创建试卷</a>
+                                        <a href="zwjc_zwjc.php">自我检测</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">试卷管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">试卷分类</a>
-                                    </li>
-                                
-                                 </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自测管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">自测记录</a>
-                                    </li>
-                                    
-                                
-                                 </ul>
-                        </li>
-               			<li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">教师管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">学生管理</a>
-                                    </li>
-                                    
-                                 </ul>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 公告管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">公告管理</a>
-                                    </li>
-                                    
+                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
+                                    </li>                             
                                  </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">不知道</a>
+                                    <a href="grzx_wdctj.php">我的错题集</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">退出登陆</a>
+                                    <a href="grzx_xgmm.php">修改密码</a>
+                                </li>
+                                  <li>
+                                    <a href="grzx_zhxx.php">账户信息</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -203,12 +162,14 @@
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">所属题库</th>
-                                            <th class="table-ctt-stlx">试题类型</th>
-                                            <th class="table-ctt-stnd">试题难度</th>
-                                            <th class="table-ctt-stzt">试题状态</th>
-                                            <th class="table-ctt-sttg">试题题干</th>
-                                            <th class="table-ctt-cjr">创建人</th>
+                                            <th class="table-ctt-sstk">试卷名称</th>
+                                            <th class="table-ctt-stlx">试卷状态</th>
+                                            <th class="table-ctt-stnd">考试时长</th>
+                                            <th class="table-ctt-stzt">考试耗时</th>
+                                            <th class="table-ctt-sttg">考试时间</th>
+                                            <th class="table-ctt-cjr">试卷类型</th>
+                                             <th class="table-ctt-cjr">试卷得分</th>
+                                              <th class="table-ctt-cjr">总分</th>
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
@@ -248,7 +209,13 @@
                                             <?php echo $value['shiti_tigan'] ?></td>
                                             <td class="hide-sm-only">
                                             <?php echo $value['shiti_chuangjianren'] ?></td>
-                                            <td>
+                                            
+                                            <td class="hide-sm-only">
+                                            11</td>
+                                           
+                                                <td class="hide-sm-only">
+                                            22</td>
+                                          <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
                                                         <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>

@@ -90,32 +90,44 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线练习</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="wdks_wdks.php">我的试卷</a>
+                                    </li>
+                                    <li>
+                                        <a href="wdks_lsks.php">历史考试</a>
+                                    </li>
+                               </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线考试</a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="zwjc_zwjc.php">自我检测</a>
+                                    </li>
+                                    <li>
+                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
+                                    </li>                             
+                                 </ul>
                         </li>
-               
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">错题集</a>
+                                    <a href="grzx_wdctj.php">我的错题集</a>
                                 </li>
                                 <li>
-                                    <a href="blank.html">考试记录</a>
+                                    <a href="grzx_xgmm.php">修改密码</a>
                                 </li>
-                                <li>
-                                    <a href="blank.html">成绩分析</a>
-                                </li>
-                                <li>
-                                    <a href="blank.html">账户信息</a>
+                                  <li>
+                                    <a href="grzx_zhxx.php">账户信息</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

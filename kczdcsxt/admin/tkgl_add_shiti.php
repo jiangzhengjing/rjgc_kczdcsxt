@@ -205,12 +205,12 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal">
+                                    <form class="form form-horizontal" action="tjshiti.php" method="post">
                                        <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">试题类型</label>
                                             <div class="col-sm-9">
-                                                 <select class="form-control">
+                                                 <select name="shiti_leixing" class="form-control">
                                                       <option>1</option>
                                                       <option>2</option>
                                                       <option>3</option>
@@ -223,7 +223,7 @@
                                             <label for="stlx" class="col-sm-3 form-label">所属题库</label>
                                             
                                             <div class="col-sm-9">
-                                                 <select class="form-control">
+                                                 <select name="shiti_tiku" class="form-control">
                                                       <option>1</option>
                                                       <option>2</option>
                                                       <option>3</option>
@@ -242,7 +242,7 @@
                                             <label for="stlx" class="col-sm-3 form-label">试题状态</label>
                                             
                                             <div class="col-sm-9">
-                                                 <select class="form-control">
+                                                 <select name="shiti_zhuangtai" class="form-control">
                                                       <option>1</option>
                                                       <option>2</option>
                                                       <option>3</option>
@@ -255,7 +255,7 @@
                                             <label for="stlx" class="col-sm-3 form-label">试题难度</label>
                                             
                                             <div class="col-sm-9">
-                                                 <select class="form-control">
+                                                 <select name="shiti_nandu" class="form-control">
                                                       <option>1</option>
                                                       <option>2</option>
                                                       <option>3</option>
@@ -270,7 +270,7 @@
                                             <label for="user-name" class="col-sm-3 form-label">试题题干</label>
                                             <div class="col-sm-9">
                                              
-                                                <textarea  rows="5"  placeholder="试题题干" style="width: 117%;margin-left: -120px;"></textarea>
+                                                <textarea  name="shiti_tigan" rows="5"  placeholder="试题题干" style="width: 117%;margin-left: -120px;"></textarea>
                                                  
                                             </div>
                                        </div>
@@ -279,19 +279,19 @@
                                             <div class="col-sm-10">
                                                 <label for="user-name" class="col-sm-2 form-label">A</label>
                                                 <div class="col-sm-10">
-                                                <textarea  rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
+                                                <textarea  name="shiti_xuanxiangA" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
                                                 </div>
                                                  <label for="user-name" class="col-sm-2 form-label">B</label>
                                                 <div class="col-sm-10">
-                                                <textarea  rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
+                                                <textarea  name="shiti_xuanxiangB" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
                                                 </div>
                                                  <label for="user-name" class="col-sm-2 form-label">C</label>
                                                 <div class="col-sm-10">
-                                                <textarea  rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
+                                                <textarea name="shiti_xuanxiangC" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
                                                 </div>
                                                  <label for="user-name" class="col-sm-2 form-label">D</label>
                                                 <div class="col-sm-10">
-                                                <textarea  rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
+                                                <textarea name="shiti_xuanxiangD" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
                                                 </div>
                                             </div>
                                             
@@ -300,7 +300,7 @@
                                             <label for="user-name" class="col-sm-3 form-label">试题解析</label>
                                             <div class="col-sm-9">
                                              
-                                                <textarea  rows="5"  placeholder="试题解析" style="width: 117%;margin-left: -120px;"></textarea>
+                                                <textarea name="shiti_jiexi" rows="5"  placeholder="试题解析" style="width: 117%;margin-left: -120px;"></textarea>
                                                  
                                             </div>
                                        </div>

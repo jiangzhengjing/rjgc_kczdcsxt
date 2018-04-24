@@ -9,7 +9,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-      <title>课程自动检测系统</title>
+   
+    <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -17,9 +18,10 @@
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
 
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <!-- jzj-style -->
+    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -28,10 +30,10 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                  
-                   <a class="navbar-brand" href="index.html">课程自动检测系统</a>
+
+                <a class="navbar-brand" href="index.html">在线考试系统</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -64,14 +66,22 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人中心</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        </li>
+                    </ul>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
+             <!-- /.navbar-top-links -->
 
-             <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -86,26 +96,44 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线练习</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="wdks_wdks.php">我的试卷</a>
+                                    </li>
+                                    <li>
+                                        <a href="wdks_lsks.php">历史试卷</a>
+                                    </li>
+                               </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线考试</a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="zwjc_zwjc.php">自我检测</a>
+                                    </li>
+                                    <li>
+                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
+                                    </li>                             
+                                 </ul>
                         </li>
-               
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                           <ul class="nav nav-second-level">
+                            <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">不知道</a>
+                                    <a href="grzx_wdctj.php">我的错题集</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">退出登陆</a>
+                                    <a href="grzx_xgmm.php">修改密码</a>
+                                </li>
+                                  <li>
+                                    <a href="grzx_zhxx.php">账户信息</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -117,58 +145,66 @@
             <!-- /.navbar-static-side -->
         </nav>
 
+        <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">在线练习</h1>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">自我检测</h1>
+                    </div>
+                    <!-- /.col-lg-12 -->
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-          <div class="row">
+                <!-- /.row -->
+                 <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            一、选择题
+                           自我检测
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form">
-                                     
+                                <div class="col-lg-12">
+                                    <form class="form form-horizontal" action="welcome.php" method="post">
+                                       <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>1、这题你选什么？</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>A、哈哈哈
-                                                </label>
+                                            <label for="stlx" class="col-sm-3 form-label">所属题库</label>
+                                            
+                                            <div class="col-sm-9">
+                                                 <select class="form-control">
+                                                      <option >1</option>
+                                                      <option >2</option>
+                                                 </select>
                                             </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">B、啦啦啦
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">C、嘻嘻嘻
-                                                </label>
-                                            </div>
+                                            
                                         </div>
-                                        <div class="form-group">
-                                            <label>2、你选什么？</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>A、哈哈哈
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">B、哈哈哈
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">C、哈哈哈
-                                            </label>
-                                        </div>
-                                        
-                                        <button type="submit" class="btn btn-default">提交</button>
                                        
+                                       <div class="form-group">
+                                            <label for="stlx" class="col-sm-3 form-label">难度</label>
+                                            
+                                            <div class="col-sm-9">
+                                                 <select class="form-control">
+                                                      <option >简单</option>
+                                                      <option >难</option>
+                                                 </select>
+                                            </div>
+                                            
+                                        </div>
+                                   
+                                        </div>
+                                   
+                                      
+                                       
+                                 
+                                     
+                                 
+                                     <div class="col-lg-12">
+                                      
+                                     
+                                       <button type="submit" class="btn btn-default" style=" margin-left: 330px;">随机生成试卷</button>
+                                       
+                                        <button type="reset" class="btn btn-default" style=" margin-left: 30px;">撤销</button>
+                                       
+                                     </div>
                                     </form>
                                 </div>
                               
@@ -181,7 +217,9 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
         </div>
         <!-- /#page-wrapper -->
 

@@ -221,6 +221,8 @@
                                                 $data [$i]['tiku_name'] = $abc['tiku_name'];
                                                 $data [$i]['tiku_zhuangtai'] = $abc['tiku_zhuangtai'];
                                                 $data [$i]['tiku_shuoming'] = $abc['tiku_shuoming'];
+												$data [$i]['tiku_chuangjianren'] = $abc['tiku_chuangjianren'];
+												$data [$i]['tiku_zhchuangjianren'] = $abc['tiku_zhchuangjianren'];
                                                 
                                                 $i++;
                                             }
@@ -233,8 +235,8 @@
                                                     <td><?php echo $value['tiku_name'] ?></td>
                                                     <td><a href="#"><?php echo $value['tiku_zhuangtai'] ?></a></td>
                                                       <td>100</td>
-                                                    <td>admin</td>
-                                                    <td>admin</td>
+                                                    <td><?php echo $value['tiku_chuangjianren'] ?></td>
+                                                    <td><?php echo $value['tiku_zhchuangjianren'] ?></td>
                                                    <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
