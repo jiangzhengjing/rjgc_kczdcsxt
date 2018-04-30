@@ -208,7 +208,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tjdanxuan.php" method="post">
+                                    <form class="form form-horizontal" action="tjduoxuan.php" method="post">
                                          <?php 
                                             include("conn.php");
                                             $sql=mysql_query(" SELECT * FROM tiku");
@@ -221,7 +221,7 @@
                                             }
                                             //var_dump($data);die; ?>
                                            
-                                        <div class="col-lg-6">
+                                       <div class="col-lg-6">
                                        
                                         <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">所属题库</label>
@@ -249,6 +249,7 @@
                                             </div>
                                         </div>
                                         </div>
+                                     
                                         <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="user-name" class="col-sm-3 form-label">试题题干</label>
@@ -290,17 +291,18 @@
                                        </div>
                                        
                                          <div class="col-lg-6">
-                                      
-                                
-                                        <div class="form-group " >
-                                          <label for="zqda" class="col-sm-3 form-label">正确答案</label>
-                                              <div class="col-sm-9">
-                                                <input type="radio" name="danxuan_daan" value="A">&nbsp;A&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="B">&nbsp;B&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="C">&nbsp;C&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="D">&nbsp;D&nbsp;&nbsp;
+                                   
+                                        <div class="form-group duoxuan_daan">
+                                           <label for="zqda" class="col-sm-3 form-label">正确答案</label>
+                                            <div class="col-sm-9">
+                                                <input type="checkbox" name="duoxuanze_daan[]" value="A">&nbsp;A&nbsp;&nbsp;
+                                                <input type="checkbox" name="duoxuanze_daan[]" value="B">&nbsp;B&nbsp;&nbsp;
+                                                <input type="checkbox" name="duoxuanze_daan[]" value="C">&nbsp;C&nbsp;&nbsp;
+                                                <input type="checkbox" name="duoxuanze_daan[]" value="D">&nbsp;D&nbsp;&nbsp;
                                                  
                                             </div>
+                                            
+                                        </div>
                                         </div>
                                        
                                      

@@ -79,7 +79,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
+           <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -191,141 +191,98 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">新增试题</h1>
+                        <h1 class="page-header">管理试题</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                  <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-							<a href="tkgl_add_shiti.php">单选题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_duoxuan.php">多选题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_panduan.php">判断题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_jianda.php">简答题&nbsp;&nbsp;</a>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tjdanxuan.php" method="post">
-                                         <?php 
+                       <div class="col-lg-12">
+                            <div class="panel-heading">
+							<a href="tkgl_add_guanlishiti.php">单选题&nbsp;&nbsp;</a>
+                            <a href="tkgl_add_guanliduoxuan.php">多选题&nbsp;&nbsp;</a>
+                            <a href="tkgl_add_guanlipanduan.php">判断题&nbsp;&nbsp;</a>
+                            <a href="tkgl_add_guanlijianda.php">简答题&nbsp;&nbsp;</a>
+                            </div>
+                            <form class="form">
+                             <table class="table table-striped table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                            <th class="table-ctt-sstk">所属题库</th>
+											<th class="table-ctt-stnd">试题难度</th>
+                                            <th class="table-ctt-sttg">试题题干</th>
+                                            <th class="table-ctt-cjr">创建人</th>
+                                            <th class="table-ctt-cz">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                             <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM tiku");
+                                            $sql=mysql_query(" SELECT * FROM duoxuan");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['tiku_name'] = $abc['tiku_name'];
+                                                $data [$i]['shiti_tiku'] = $abc['shiti_tiku'];
+                                               
+                                                $data [$i]['shiti_nandu'] = $abc['shiti_nandu'];
+												
+												$data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
+                                                $data [$i]['shiti_chuangjianren'] = $abc['shiti_chuangjianren'];
                                                
                                                 $i++;
                                             }
                                             //var_dump($data);die; ?>
-                                           
-                                        <div class="col-lg-6">
-                                       
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">所属题库</label>
-                                            
-                                            <div class="col-sm-9">
-                                                
-                                                 <select name="shiti_tiku" class="form-control">
-                                                       <?php foreach ($data as $key => $value) { ?>
-                                                      <option> <?php echo $value['tiku_name'] ?></option>
-                                                     <?php } ?>
-                                                 </select>
-                                                     
-                                            </div>
-                                        </div>
-                                   
-                                   <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">试题难度</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 <select name="shiti_nandu" class="form-control">
-                                                      <option>简单</option>
-                                                      <option>常规</option>
-                                                      <option>困难</option>
-                                                 </select>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <label for="user-name" class="col-sm-3 form-label">试题题干</label>
-                                            <div class="col-sm-9">
-                                             
-                                                <textarea  name="shiti_tigan" rows="5"  placeholder="试题题干" style="width: 117%;margin-left: -120px;"></textarea>
-                                                 
-                                            </div>
-                                       </div>
-                                       <div class="form-group xuanxiang" id="xuanxiang" >
-                                            <label for="user-name" class="col-sm-2 form-label">选项设置</label>
-                                            <div class="col-sm-10">
-                                                <label for="user-name" class="col-sm-2 form-label">A</label>
-                                                <div class="col-sm-10">
-                                                <textarea  name="shiti_xuanxiangA" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                                 <label for="user-name" class="col-sm-2 form-label">B</label>
-                                                <div class="col-sm-10">
-                                                <textarea  name="shiti_xuanxiangB" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                                 <label for="user-name" class="col-sm-2 form-label">C</label>
-                                                <div class="col-sm-10">
-                                                <textarea name="shiti_xuanxiangC" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                                 <label for="user-name" class="col-sm-2 form-label">D</label>
-                                                <div class="col-sm-10">
-                                                <textarea name="shiti_xuanxiangD" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                            </div>
-                                            
-                                       </div>
-                                       <div class="form-group">
-                                            <label for="user-name" class="col-sm-3 form-label">试题解析</label>
-                                            <div class="col-sm-9">
-                                             
-                                                <textarea name="shiti_jiexi" rows="5"  placeholder="试题解析" style="width: 117%;margin-left: -120px;"></textarea>
-                                                 
-                                            </div>
-                                       </div>
-                                       
-                                         <div class="col-lg-6">
+                                            <?php
+                                            foreach ($data as $key => $value) {
+                                            ?>
+                                               
                                       
-                                
-                                        <div class="form-group " >
-                                          <label for="zqda" class="col-sm-3 form-label">正确答案</label>
-                                              <div class="col-sm-9">
-                                                <input type="radio" name="danxuan_daan" value="A">&nbsp;A&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="B">&nbsp;B&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="C">&nbsp;C&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="D">&nbsp;D&nbsp;&nbsp;
-                                                 
-                                            </div>
-                                        </div>
-                                       
-                                     
-                                        </div>
-                                     <div class="col-lg-12">
-                                      
-                                     
-                                       <button type="submit" class="btn btn-default" style=" margin-left: 330px;">提交</button>
-                                       
-                                        <button type="reset" class="btn btn-default" style=" margin-left: 30px;">撤销</button>
-                                       
-                                     </div>
-                                    </form>
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['shiti_tiku'] ?></td>
+                                            
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['shiti_nandu'] ?></td>
+                                            
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['shiti_tigan'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['shiti_chuangjianren'] ?></td>
+                                            <td>
+                                                <div class="btn-toolbar">
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
+                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                      <?php }?>
+                                    </tbody>
+                                </table>
+                                <div class="cf" style="text-align: center;">
+								
+                                    <div class="fr">
+                                        <ul class="pagination tpl-pagination">
+                                            <li class="disabled"><a href="#">«</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                              
-                            </div>
-                            <!-- /.row (nested) -->
+                                <hr>
+
+                            </form>
                         </div>
-                        <!-- /.panel-body -->
+
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </div>

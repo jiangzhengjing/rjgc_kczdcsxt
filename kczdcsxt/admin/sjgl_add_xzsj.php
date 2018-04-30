@@ -191,7 +191,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">新增试题</h1>
+                        <h1 class="page-header">新增试卷</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -200,51 +200,67 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							<a href="tkgl_add_shiti.php">单选题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_duoxuan.php">多选题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_panduan.php">判断题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_jianda.php">简答题&nbsp;&nbsp;</a>
+                            新增试卷
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tjdanxuan.php" method="post">
-                                         <?php 
-                                            include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM tiku");
-                                            $i = 0;
-                                            while($abc = mysql_fetch_assoc($sql))
-                                            {
-                                                $data [$i]['tiku_name'] = $abc['tiku_name'];
-                                               
-                                                $i++;
-                                            }
-                                            //var_dump($data);die; ?>
-                                           
-                                        <div class="col-lg-6">
-                                       
+                                    <form class="form form-horizontal" action="tjshiti.php" method="post">
+                                       <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="stlx" class="col-sm-3 form-label">试题类型</label>
+                                            <div class="col-sm-9">
+                                                 <select name="shiti_leixing" class="form-control">
+                                                      <option>1</option>
+                                                      <option>2</option>
+                                                      <option>3</option>
+                                                      <option>4</option>
+                                                      <option>5</option>
+                                                 </select>
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">所属题库</label>
                                             
                                             <div class="col-sm-9">
-                                                
                                                  <select name="shiti_tiku" class="form-control">
-                                                       <?php foreach ($data as $key => $value) { ?>
-                                                      <option> <?php echo $value['tiku_name'] ?></option>
-                                                     <?php } ?>
+                                                      <option>1</option>
+                                                      <option>2</option>
+                                                      <option>3</option>
+                                                      <option>4</option>
+                                                      <option>5</option>
                                                  </select>
-                                                     
                                             </div>
                                         </div>
                                    
-                                   <div class="form-group">
+                                   
+                                        </div>
+                                                <div class="col-lg-6">
+                                      
+                                      
+                                        <div class="form-group">
+                                            <label for="stlx" class="col-sm-3 form-label">试题状态</label>
+                                            
+                                            <div class="col-sm-9">
+                                                 <select name="shiti_zhuangtai" class="form-control">
+                                                      <option>1</option>
+                                                      <option>2</option>
+                                                      <option>3</option>
+                                                      <option>4</option>
+                                                      <option>5</option>
+                                                 </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">试题难度</label>
                                             
                                             <div class="col-sm-9">
                                                  <select name="shiti_nandu" class="form-control">
-                                                      <option>简单</option>
-                                                      <option>常规</option>
-                                                      <option>困难</option>
+                                                      <option>1</option>
+                                                      <option>2</option>
+                                                      <option>3</option>
+                                                      <option>4</option>
+                                                      <option>5</option>
                                                  </select>
                                             </div>
                                         </div>
@@ -258,7 +274,7 @@
                                                  
                                             </div>
                                        </div>
-                                       <div class="form-group xuanxiang" id="xuanxiang" >
+                                       <div class="form-group">
                                             <label for="user-name" class="col-sm-2 form-label">选项设置</label>
                                             <div class="col-sm-10">
                                                 <label for="user-name" class="col-sm-2 form-label">A</label>
@@ -288,22 +304,6 @@
                                                  
                                             </div>
                                        </div>
-                                       
-                                         <div class="col-lg-6">
-                                      
-                                
-                                        <div class="form-group " >
-                                          <label for="zqda" class="col-sm-3 form-label">正确答案</label>
-                                              <div class="col-sm-9">
-                                                <input type="radio" name="danxuan_daan" value="A">&nbsp;A&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="B">&nbsp;B&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="C">&nbsp;C&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="D">&nbsp;D&nbsp;&nbsp;
-                                                 
-                                            </div>
-                                        </div>
-                                       
-                                     
                                         </div>
                                      <div class="col-lg-12">
                                       

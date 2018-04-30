@@ -208,7 +208,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tjdanxuan.php" method="post">
+                                    <form class="form form-horizontal" action="tjjianda.php" method="post">
                                          <?php 
                                             include("conn.php");
                                             $sql=mysql_query(" SELECT * FROM tiku");
@@ -221,8 +221,8 @@
                                             }
                                             //var_dump($data);die; ?>
                                            
-                                        <div class="col-lg-6">
-                                       
+                                       <div class="col-lg-6">
+                                        
                                         <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">所属题库</label>
                                             
@@ -236,8 +236,7 @@
                                                      
                                             </div>
                                         </div>
-                                   
-                                   <div class="form-group">
+                                      <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">试题难度</label>
                                             
                                             <div class="col-sm-9">
@@ -248,8 +247,10 @@
                                                  </select>
                                             </div>
                                         </div>
-                                        </div>
-                                        <div class="col-lg-12">
+                                   
+                                      </div>
+                                   
+                                      <div class="col-lg-12">
                                         <div class="form-group">
                                             <label for="user-name" class="col-sm-3 form-label">试题题干</label>
                                             <div class="col-sm-9">
@@ -258,28 +259,7 @@
                                                  
                                             </div>
                                        </div>
-                                       <div class="form-group xuanxiang" id="xuanxiang" >
-                                            <label for="user-name" class="col-sm-2 form-label">选项设置</label>
-                                            <div class="col-sm-10">
-                                                <label for="user-name" class="col-sm-2 form-label">A</label>
-                                                <div class="col-sm-10">
-                                                <textarea  name="shiti_xuanxiangA" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                                 <label for="user-name" class="col-sm-2 form-label">B</label>
-                                                <div class="col-sm-10">
-                                                <textarea  name="shiti_xuanxiangB" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                                 <label for="user-name" class="col-sm-2 form-label">C</label>
-                                                <div class="col-sm-10">
-                                                <textarea name="shiti_xuanxiangC" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                                 <label for="user-name" class="col-sm-2 form-label">D</label>
-                                                <div class="col-sm-10">
-                                                <textarea name="shiti_xuanxiangD" rows="3"  placeholder="选项描述" style="width: 100%;"></textarea>
-                                                </div>
-                                            </div>
-                                            
-                                       </div>
+                                    
                                        <div class="form-group">
                                             <label for="user-name" class="col-sm-3 form-label">试题解析</label>
                                             <div class="col-sm-9">
@@ -289,23 +269,10 @@
                                             </div>
                                        </div>
                                        
-                                         <div class="col-lg-6">
-                                      
-                                
-                                        <div class="form-group " >
-                                          <label for="zqda" class="col-sm-3 form-label">正确答案</label>
-                                              <div class="col-sm-9">
-                                                <input type="radio" name="danxuan_daan" value="A">&nbsp;A&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="B">&nbsp;B&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="C">&nbsp;C&nbsp;&nbsp;
-                                                <input type="radio" name="danxuan_daan" value="D">&nbsp;D&nbsp;&nbsp;
-                                                 
-                                            </div>
-                                        </div>
                                        
-                                     
+                                            
                                         </div>
-                                     <div class="col-lg-12">
+                                      <div class="col-lg-12">
                                       
                                      
                                        <button type="submit" class="btn btn-default" style=" margin-left: 330px;">提交</button>
