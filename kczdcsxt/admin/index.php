@@ -90,32 +90,85 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线练习</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="tkgl_add_tiku.php">新增题库</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_tikulist.php">题库列表</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_shiti.php">新增试题</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_piliangdaorushiti.php">导入试题</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_guanlishiti.php">管理试题</a>
+                                    </li>
+                               </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线考试</a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="blank.html">创建试卷</a>
+                                    </li>
+                                    <li>
+                                        <a href="blank.html">试卷管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="blank.html">试卷分类</a>
+                                    </li>
+                                
+                                 </ul>
                         </li>
-               
+                         <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自测管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="blank.html">自测记录</a>
+                                    </li>
+                                    
+                                
+                                 </ul>
+                        </li>
+               			<li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="blank.html">教师管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="blank.html">学生管理</a>
+                                    </li>
+                                    
+                                 </ul>
+                        </li>
+                        <li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 公告管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="blank.html">公告管理</a>
+                                    </li>
+                                    
+                                 </ul>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">错题集</a>
+                                    <a href="blank.html">不知道</a>
                                 </li>
                                 <li>
-                                    <a href="blank.html">考试记录</a>
-                                </li>
-                                <li>
-                                    <a href="blank.html">成绩分析</a>
-                                </li>
-                                <li>
-                                    <a href="blank.html">账户信息</a>
+                                    <a href="login.html">退出登陆</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

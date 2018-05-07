@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -79,7 +79,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-          <!-- /.navbar-top-links -->
+           <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -102,79 +102,38 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="tkgl_add_tiku.php">新增题库</a>
+                                        <a href="wdks_wdks.php">我的考试</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_tikulist.php">题库列表</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_shiti.php">新增试题</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_piliangdaorushiti.php">导入试题</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_guanlishiti.php">管理试题</a>
+                                        <a href="wdks_lsks.php">历史考试</a>
                                     </li>
                                </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">创建试卷</a>
+                                        <a href="zwjc_zwjc.php">自我检测</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">试卷管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">试卷分类</a>
-                                    </li>
-                                
-                                 </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自测管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">自测记录</a>
-                                    </li>
-                                    
-                                
-                                 </ul>
-                        </li>
-               			<li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">教师管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">学生管理</a>
-                                    </li>
-                                    
-                                 </ul>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 公告管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">公告管理</a>
-                                    </li>
-                                    
+                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
+                                    </li>                             
                                  </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">不知道</a>
+                                    <a href="grzx_wdctj.php">我的错题集</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">退出登陆</a>
+                                    <a href="grzx_xgmm.php">修改密码</a>
+                                </li>
+                                  <li>
+                                    <a href=grzx_zhxx.php>账户信息</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -191,7 +150,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">新增题库</h1>
+                        <h1 class="page-header">账户信息</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -200,37 +159,37 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            新增题库
+                            账户信息
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tjtiku.php" method="post">
+                                    <form class="form form-horizontal" action="welcome.php" method="post">
                                        <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库名称</label>
-                                            <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">状态</label>
+                                       <div class="form-group">
+                                            <label for="stlx" class="col-sm-3 form-label">用户名:</label>
                                             
                                             <div class="col-sm-9">
-                                                 <select name="tiku_zhuangtai" class="form-control">
-                                                      <option  value="开放" checked="checked">开放</option>
-                                                      <option  value="关闭">关闭</option>
-                                      
-                                                 </select>
+                                                 张三
                                             </div>
+                                            
+                                        </div>
+                                          <div class="form-group">
+                                            <label for="stlx" class="col-sm-3 form-label">所属学院:</label>
+                                            
+                                            <div class="col-sm-9">
+                                                 信息工程学院
+                                            </div>
+                                            
                                         </div>
                                         <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库说明</label>
+                                            <label for="stlx" class="col-sm-3 form-label">所属班级:</label>
+                                            
                                             <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_shuoming">
+                                                 计算机152
                                             </div>
+                                            
                                         </div>
-                                   
                                    
                                         </div>
                                    

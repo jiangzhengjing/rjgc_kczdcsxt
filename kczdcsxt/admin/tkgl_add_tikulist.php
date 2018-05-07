@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -191,75 +191,87 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">新增题库</h1>
+                        <h1 class="page-header">题库列表</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                  <div class="row">
-                <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            新增题库
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="tjtiku.php" method="post">
-                                       <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库名称</label>
-                                            <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_name">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">状态</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 <select name="tiku_zhuangtai" class="form-control">
-                                                      <option  value="开放" checked="checked">开放</option>
-                                                      <option  value="关闭">关闭</option>
-                                      
-                                                 </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">题库说明</label>
-                                            <div class="col-sm-9">
-                                                 <input class="form-control" name="tiku_shuoming">
-                                            </div>
-                                        </div>
-                                   
-                                   
-                                        </div>
-                                   
-                                      
-                                       
-                                 
+                       <div class="col-lg-12">
+                            <form class="form">
+                                <table class="table table-striped table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                            <th class="table-ctt-sstk">题库名称</th>
+                                            <th class="table-ctt-stlx">状态</th>
+                                            <th class="table-ctt-stnd">试题数量</th>
+                                            <th class="table-ctt-stzt">创建人</th>
+                                            <th class="table-ctt-sttg">最后修改人</th>
+                                            <th class="table-ctt-cz">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM tiku");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['tiku_name'] = $abc['tiku_name'];
+                                                $data [$i]['tiku_zhuangtai'] = $abc['tiku_zhuangtai'];
+                                                $data [$i]['tiku_shuoming'] = $abc['tiku_shuoming'];
+												$data [$i]['tiku_chuangjianren'] = $abc['tiku_chuangjianren'];
+												$data [$i]['tiku_zhchuangjianren'] = $abc['tiku_zhchuangjianren'];
+                                                
+                                                $i++;
+                                            }
+                                            //var_dump($data);die; ?>
+                                            <?php
+                                            foreach ($data as $key => $value) {
+                                            ?>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td><?php echo $value['tiku_name'] ?></td>
+                                                    <td><a href="#"><?php echo $value['tiku_zhuangtai'] ?></a></td>
+                                                      <td>100</td>
+                                                    <td><?php echo $value['tiku_chuangjianren'] ?></td>
+                                                    <td><?php echo $value['tiku_zhchuangjianren'] ?></td>
+                                                   <td>
+                                                <div class="btn-toolbar">
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 数据分析</button>
+                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 修改</button>
+                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 题库导出</button>
+                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                                </tr>
+                                        <?php }?>
                                      
-                                 
-                                     <div class="col-lg-12">
-                                      
-                                     
-                                       <button type="submit" class="btn btn-default" style=" margin-left: 330px;">提交</button>
-                                       
-                                        <button type="reset" class="btn btn-default" style=" margin-left: 30px;">撤销</button>
-                                       
-                                     </div>
-                                    </form>
+                                    </tbody>
+                                </table>
+                                <div class="cf" style="text-align: center;">
+								
+                                    <div class="fr">
+                                        <ul class="pagination tpl-pagination">
+                                            <li class="disabled"><a href="#">«</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                              
-                            </div>
-                            <!-- /.row (nested) -->
+                                <hr>
+
+                            </form>
                         </div>
-                        <!-- /.panel-body -->
+
                     </div>
-                    <!-- /.panel -->
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </div>

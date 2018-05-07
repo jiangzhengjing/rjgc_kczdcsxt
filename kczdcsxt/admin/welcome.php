@@ -1,8 +1,11 @@
 ﻿<html>
 <body>
 
-Welcome <?php echo $_POST["tikuname"]; ?><br>
-Your email address is: <?php echo $_POST["zhuangtai"]; ?>
+Welcome <?php echo $_POST["tiku_name"]; ?><br>
+ 
 
+<?php echo $_POST["tiku_zhuangtai"]; ?><br>
+<?php echo $_POST["tiku_shuoming"]; ?>
+ 
 </body>
 </html>
