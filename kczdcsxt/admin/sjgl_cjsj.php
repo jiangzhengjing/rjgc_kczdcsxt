@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,7 +17,8 @@
 
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
+    <!--    bootstrap-datetimepicker-->
+    <link href="../style/css/bootstrap-datetimepicker.min.css" rel="stylesheet" >
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <!-- jzj-style -->
@@ -191,98 +192,139 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">管理试题</h1>
+                        <h1 class="page-header">创建试题</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                 <div class="row">
-                       <div class="col-lg-12">
-                            <div class="panel-heading">
-							<a href="tkgl_add_guanlishiti.php">单选题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_guanliduoxuan.php">多选题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_guanlipanduan.php">判断题&nbsp;&nbsp;</a>
-                            <a href="tkgl_add_guanlijianda.php">简答题&nbsp;&nbsp;</a>
-                            </div>
-                            <form class="form">
-                             <table class="table table-striped table-hover table-main">
-                                    <thead>
-                                        <tr>
-                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">所属题库</th>
-											<th class="table-ctt-stnd">试题难度</th>
-                                            <th class="table-ctt-sttg">试题题干</th>
-                                            <th class="table-ctt-cjr">创建人</th>
-                                            <th class="table-ctt-cz">操作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                             <?php 
-                                            include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM duoxuan");
-                                            $i = 0;
-                                            while($abc = mysql_fetch_assoc($sql))
-                                            {
-                                                $data [$i]['shiti_tiku'] = $abc['shiti_tiku'];
+                <p>
+											<a href="sjgl_cjsj.php"><button class="btn">创建试题</button></a>
+					<a href="sjgl_kscjsj.php"><button class="btn">快速创建试题</button></a>
+											<button class="btn">管理试题</button>
+										</p>
+                                        <hr>
+                                        <hr>
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <form class="form form-horizontal" action="cjsj.php" method="post">
+                                       <div class="col-lg-12">
+                                       <div class="form-group">
+                                            <label for="user-name" class="col-sm-3 form-label">试卷名称</label>
+                                            <div class="col-sm-9">
                                                
-                                                $data [$i]['shiti_nandu'] = $abc['shiti_nandu'];
-												
-												$data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
-                                                $data [$i]['shiti_chuangjianren'] = $abc['shiti_chuangjianren'];
-                                               
-                                                $i++;
-                                            }
-                                            //var_dump($data);die; ?>
-                                            <?php
-                                            foreach ($data as $key => $value) {
-                                            ?>
-                                               
-                                      
-                                        <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_tiku'] ?></td>
-                                            
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_nandu'] ?></td>
-                                            
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_tigan'] ?></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_chuangjianren'] ?></td>
-                                            <td>
-                                                <div class="btn-toolbar">
-                                                    <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
-                                                    </div>
+                                                 <input class="form-control"  name="sjmc">
+
+                                            </div>
+                                       </div>
+                                       </div>
+                                       <div class="col-lg-6">
+
+                                            <div class="form-group">
+                                                <label for="stlx" class="col-sm-3 form-label">试卷分类</label>
+                                                <div class="col-sm-9">
+                                                     <select name="sjfl" class="form-control">
+                                                          <option>请选择</option>
+                                                          <option>2</option>
+                                                          <option>3</option>
+                                                          <option>4</option>
+                                                          <option>5</option>
+                                                     </select>
                                                 </div>
-                                            </td>
-                                        </tr>
-                                      <?php }?>
-                                    </tbody>
-                                </table>
-                                <div class="cf" style="text-align: center;">
-								
-                                    <div class="fr">
-                                        <ul class="pagination tpl-pagination">
-                                            <li class="disabled"><a href="#">«</a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">»</a></li>
-                                        </ul>
-                                    </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="stlx" class="col-sm-3 form-label">开考时间</label>
+                                            
+                                                <div class="col-sm-9">
+                                                     
+                                                     <input class="form-control" type="date" name="kksj">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="stlx" class="col-sm-3 form-label">成绩公布时间</label>
+                                                <div class="col-sm-9">
+                                                     
+                                                     <input class="form-control" type="date" name="cjgbsj">
+                                                </div>
+                                            </div>
+
+                                           
+
+                                          
+
+                                        </div>
+                                        <div class="col-lg-6">
+
+                                            <div class="form-group">
+                                                <label for="stlx" class="col-sm-3 form-label">试卷状态</label>
+                                            
+                                                <div class="col-sm-9">
+                                                     <select name="sjzt" class="form-control">
+                                                          <option>开放</option>
+                                                          <option>关闭</option>
+                                                     </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="stlx" class="col-sm-3 form-label">结束时间</label>
+                                            
+                                                <div class="col-sm-9">
+                                                    
+                                                       <input class="form-control" type="date" name="jssj">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="stlx" class="col-sm-3 form-label">考试时长</label>
+                                            
+                                                <div class="col-sm-9">
+                                                    
+                                                       <input class="form-control" type="date" name="kssc">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="user-name" class="col-sm-3 form-label">试卷说明</label>
+                                            <div class="col-sm-9">
+                                             
+                                                <textarea name="sjsm" rows="5" style="width: 117%;margin-left: -120px;"></textarea>
+                                                 
+                                            </div>
+                                       </div>
+                                        </div>
+                                     
+                                    </form>
+                                    <div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="button">
+												<i class="icon-ok bigger-110"></i>
+												提交
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="icon-undo bigger-110"></i>
+												取消
+											</button>
+										</div>
                                 </div>
-                                <hr>
-
-                            </form>
+                              
+                            </div>
+                            <!-- /.row (nested) -->
                         </div>
-
+                        <!-- /.panel-body -->
                     </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
             </div>
             <!-- /.container-fluid -->
         </div>
@@ -302,7 +344,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../style/js/sb-admin-2.js"></script>
-
+    <!--   bootstrap-datetimepicker-->
+    <script src="../style/bootstrap/bootstrap-datetimepicker.js"></script>
 </body>
 
 </html>

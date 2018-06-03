@@ -119,10 +119,10 @@
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">创建试卷</a>
+                                        <a href="sjgl_cjsj.php">创建试卷</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">试卷管理</a>
+                                        <a href="sjgl_cjsj.php">试卷管理</a>
                                     </li>
                                     <li>
                                         <a href="blank.html">试卷分类</a>
