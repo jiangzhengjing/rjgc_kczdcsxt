@@ -28,24 +28,16 @@
 			
 			<div class="rem_sub">
 				<div class="rem_sub_l">
-<<<<<<< HEAD
-					<input type="radio" name="radio" id="save_me">
-					<label for="radio">管理员</label>
-					<input type="radio" name="radio" id="save_me">
-					<label for="radio">教师</label>
-					<input type="radio" name="radio" id="save_me">
-=======
+			
 					<input type="radio" name="quanxian" id="save_me" value="admin">
 					<label for="radio">管理员</label>
 					<input type="radio" name="quanxian" id="save_me" value="teacher">
 					<label for="radio">教师</label>
 					<input type="radio" name="quanxian" id="save_me" checked value="student">
->>>>>>> c172eefbede826f1b6ea36d108215a6c04dacafa
 					<label for="radio">学生</label>
 				</div>
 				<label>
 					<input type="submit" class="sub_button" name="button" id="button" value="登录" style="opacity: 0.7;">
-<!--					<button type="submit" class="sub_button" style="opacity: 0.7;">登录</button>-->
 				</label>
 			</div>
 			</form>

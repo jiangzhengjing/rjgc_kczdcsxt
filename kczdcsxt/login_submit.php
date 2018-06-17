@@ -1,7 +1,5 @@
 <?php 
     include("conn.php");
-
-<<<<<<< HEAD
     $sql=mysql_query(" SELECT * FROM student");
     $user=$_POST[user];
     $psd=$_POST[password];
@@ -27,7 +25,6 @@
           echo "用户名错误";
         }
      }
-=======
     $quanxian=$_POST[quanxian];
     $user=$_POST[user];
     $psd=$_POST[password];
@@ -131,6 +128,5 @@
     }
     
     
->>>>>>> c172eefbede826f1b6ea36d108215a6c04dacafa
     mysql_close();
 ?>
