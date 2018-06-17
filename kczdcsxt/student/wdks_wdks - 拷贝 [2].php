@@ -96,85 +96,44 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的试卷<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">新增题库</a>
+                                        <a href="wdks_wdks.php">我的考试</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">题库列表</a>
-                                    </li>
-                                    <li>
-                                        <a href="tkgl_add_shiti.html">新增试题</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">导入试题</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">管理试题</a>
+                                        <a href="wdks_lsks.php">历史考试</a>
                                     </li>
                                </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">创建试卷</a>
+                                        <a href="zwjc_zwjc.php">自我检测</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">试卷管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">试卷分类</a>
-                                    </li>
-                                
-                                 </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自测管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">自测记录</a>
-                                    </li>
-                                    
-                                
-                                 </ul>
-                        </li>
-               			<li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">教师管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">学生管理</a>
-                                    </li>
-                                    
-                                 </ul>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 公告管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">公告管理</a>
-                                    </li>
-                                    
+                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
+                                    </li>                             
                                  </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">不知道</a>
+                                    <a href="grzx_wdctj.php">我的错题集</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">退出登陆</a>
+                                    <a href="grzx_xgmm.php">修改密码</a>
+                                </li>
+                                  <li>
+                                    <a href="grzx_zhxx.php">账户信息</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -191,7 +150,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">用户自测记录</h1>
+                        <h1 class="page-header">我的考试</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -203,34 +162,64 @@
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th >用户名</th>
-                                            <th >所属学院</th>
-                                            <th >学号</th>
-                                            <th >考试时间</th>
-                                            <th >耗时（分钟）</th>
-                                            <th >得分</th>
-                                            <th >操作</th>
+                                            <th class="table-ctt-sstk">试卷名称</th>
+                                            <th class="table-ctt-stlx">时间设定</th>
+                                            <th class="table-ctt-stnd">考试时长</th>
+                                            <th class="table-ctt-stzt">试卷类型</th>
+                                            <th class="table-ctt-sttg">卷面总分</th>
+                                            <th class="table-ctt-cjr">及格分数</th>
+                                            <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                             <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM shijuanshuoming");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['sjmc'] = $abc['sjmc'];
+                                                $data [$i]['jssj'] = $abc['jssj'];
+                                                $data [$i]['kksj'] = $abc['kksj'];
+												$data [$i]['kssc'] = $abc['kssc'];
+												$data [$i]['sjfl'] = $abc['sjfl'];
+                                              
+                                               
+                                                $i++;
+                                            }
+                                            //var_dump($data);die; ?>
+                                            <?php
+                                            foreach ($data as $key => $value)
+											{ ?>
+                                               
+                                      
                                         <tr>
                                             <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">王一</td>
-                                            <td class="hide-sm-only">信息工程学院</td>
-                                            <td class="hide-sm-only">201505010201</td>
-                                            <td class="hide-sm-only">2018-04-11 14:25:41.0</td>
-                                            <td class="hide-sm-only">30</td>
-                                            <td class="hide-sm-only">99/100</td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['sjmc'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['jssj'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['kksj'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['kssc'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['sjfl'] ?></td>
+                                            <td class="hide-sm-only">
+                                            100</td>
+                                            <td class="hide-sm-only">
+                                            60</td>
                                             <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 查看详情</button>
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
                                                         <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
                                                     </div>
                                                 </div>
                                             </td>
                                         </tr>
-                                     
+                                      <?php }?>
                                     </tbody>
                                 </table>
                                 <div class="cf" style="text-align: center;">

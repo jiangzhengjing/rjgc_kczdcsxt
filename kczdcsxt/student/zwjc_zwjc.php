@@ -164,7 +164,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="welcome.php" method="post">
+                                    <form class="form form-horizontal" >
                                        <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">所属题库</label>
