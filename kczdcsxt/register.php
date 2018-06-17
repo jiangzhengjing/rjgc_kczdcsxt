@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>课程自动检测系统</title>
-<link href="../style/css/loginstyle.css" rel="stylesheet" type="text/css">
+<link href="style/css/loginstyle.css" rel="stylesheet" type="text/css">
 
 </head>
 
