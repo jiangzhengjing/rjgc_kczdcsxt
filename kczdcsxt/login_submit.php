@@ -1,8 +1,10 @@
-<?php 
+﻿<?php 
     include("conn.php");
     $quanxian=$_POST[quanxian];
     $user=$_POST[user];
     $psd=$_POST[password];
+    session_start();
+    $_SESSION['user']=$user;
     if($quanxian=="admin")
     {
         $sql=mysql_query(" SELECT * FROM admin");
