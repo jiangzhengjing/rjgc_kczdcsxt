@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -67,7 +67,7 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人中心</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php session_start();$user=$_SESSION['user'];echo $user;?></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
@@ -163,21 +163,23 @@
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
                                             <th class="table-ctt-sstk">试卷名称</th>
-                                            <th class="table-ctt-sttg">试卷说明</th>
+											<th class="table-ctt-sttg">分数</th>
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
+											$sql=mysql_query(" SELECT * FROM shijuan");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['sjmc'] = $abc['sjmc'];
-												$data [$i]['sjsm'] = $abc['sjsm'];
-                                                
-                                                $i++;
+												if($abc['user']==$user)
+												{
+													$data [$i]['sjmc'] = '试卷'.$abc['Id'];
+													$data [$i]['score'] = $abc['score'];
+													$i++;
+												}
                                             }
                                             //var_dump($data);die; ?>
                                             <?php
@@ -186,8 +188,7 @@
                                                 <tr>
                                                     <td><input type="checkbox"></td>
                                                     <td><?php echo $value['sjmc'] ?></td>
-                                   
-                                                     <td><?php echo $value['sjsm'] ?></td>
+													 <td><?php echo $value['score'] ?></td>
                                                    <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
