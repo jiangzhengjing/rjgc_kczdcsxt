@@ -9,27 +9,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!-- jzj-style -->
+       <!-- jzj-style -->
     <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
 
     <div id="wrapper">
 
-        <!-- Navigation -->
+               <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
@@ -79,7 +75,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
+          <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -96,85 +92,59 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                           <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">新增题库</a>
+                                        <a href="tkgl_add_tiku.php">新增题库</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">题库列表</a>
+                                        <a href="tkgl_add_tikulist.php">题库列表</a>
                                     </li>
                                     <li>
-                                        <a href="tkgl_add_shiti.html">新增试题</a>
+                                        <a href="tkgl_add_shiti.php">新增试题</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">导入试题</a>
+                                        <a href="tkgl_add_piliangdaorushiti.php">导入试题</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">管理试题</a>
+                                        <a href="tkgl_add_guanlishiti.php">管理试题</a>
                                     </li>
                                </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">创建试卷</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">试卷管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">试卷分类</a>
-                                    </li>
-                                
-                                 </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自测管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">自测记录</a>
-                                    </li>
-                                    
-                                
-                                 </ul>
+                            <a href="sjgl_sjgl.php"><i class="fa fa-edit fa-fw"></i> 试卷管理</a>
+                            	
                         </li>
                			<li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">教师管理</a>
+                                        <a href="#">教师管理</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">学生管理</a>
+                                        <a href="#">学生管理</a>
                                     </li>
                                     
                                  </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 公告管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">公告管理</a>
-                                    </li>
-                                    
-                                 </ul>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 公告管理</a>
+                            	
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">不知道</a>
+                                    <a href="#">不知道</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">退出登陆</a>
+                                    <a href="#">退出登陆</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -185,13 +155,12 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">题库列表</h1>
+                        <h1 class="page-header">试卷管理</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -203,23 +172,42 @@
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">题库名称</th>
-                                            <th class="table-ctt-stlx">状态</th>
-                                            <th class="table-ctt-stnd">试题数量</th>
-                                            <th class="table-ctt-stzt">创建人</th>
-                                            <th class="table-ctt-sttg">最后修改人</th>
+                                            <th class="table-ctt-sstk">试卷名称</th>
+                                            <th class="table-ctt-stlx">试卷状态</th>
+                                            <th class="table-ctt-stnd">开考时间</th>
+                                            <th class="table-ctt-stzt">结束时间</th>
+                                            <th class="table-ctt-sttg">试卷说明</th>
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">1</td>
-                                            <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">0</td>
-                                            <td class="hide-sm-only">admin</td>
-                                            <td class="hide-sm-only">admin1</td>
-                                            <td>
+                                    <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['sjmc'] = $abc['sjmc'];
+                                                $data [$i]['sjzt'] = $abc['sjzt'];
+                                                $data [$i]['kksj'] = $abc['kksj'];
+												$data [$i]['jssj'] = $abc['jssj'];
+												$data [$i]['sjsm'] = $abc['sjsm'];
+                                                
+                                                $i++;
+                                            }
+                                            //var_dump($data);die; ?>
+                                            <?php
+                                            foreach ($data as $key => $value) {
+                                            ?>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td><?php echo $value['sjmc'] ?></td>
+                                                    <td><a href="#"><?php echo $value['sjzt'] ?></a></td>
+                                                     
+                                                    <td><?php echo $value['kksj'] ?></td>
+                                                    <td><?php echo $value['jssj'] ?></td>
+                                                     <td><?php echo $value['sjsm'] ?></td>
+                                                   <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
                                                         <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 数据分析</button>
@@ -229,62 +217,9 @@
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                            <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">1</td>
-                                            <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">0</td>
-                                            <td class="hide-sm-only">admin</td>
-                                            <td class="hide-sm-only">admin1</td>
-                                            <td>
-                                                <div class="btn-toolbar">
-                                                    <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 数据分析</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 修改</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 题库导出</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                            <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">1</td>
-                                            <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">0</td>
-                                            <td class="hide-sm-only">admin</td>
-                                            <td class="hide-sm-only">admin1</td>
-                                            <td>
-                                                <div class="btn-toolbar">
-                                                    <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 数据分析</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 修改</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 题库导出</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                            <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">1</td>
-                                            <td class="hide-sm-only">开放</td>
-                                            <td class="hide-sm-only">0</td>
-                                            <td class="hide-sm-only">admin</td>
-                                            <td class="hide-sm-only">admin1</td>
-                                            <td>
-                                                <div class="btn-toolbar">
-                                                    <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 数据分析</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 修改</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 题库导出</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-
+                                                </tr>
+                                        <?php }?>
+                                     
                                     </tbody>
                                 </table>
                                 <div class="cf" style="text-align: center;">

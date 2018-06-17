@@ -17,14 +17,16 @@
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+       <!-- jzj-style -->
+    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+               <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.html">在线考试系统</a>
@@ -73,7 +75,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
+          <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -90,7 +92,7 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                           <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
@@ -116,59 +118,33 @@
                                </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="sjgl_cjsj.php">创建试卷</a>
-                                    </li>
-                                    <li>
-                                        <a href="sjgl_cjsj.php">试卷管理</a>
-                                    </li>
-                                    <li>
-                                        <a href="blank.html">试卷分类</a>
-                                    </li>
-                                
-                                 </ul>
-                        </li>
-                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自测管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">自测记录</a>
-                                    </li>
-                                    
-                                
-                                 </ul>
+                            <a href="sjgl_sjgl.php"><i class="fa fa-edit fa-fw"></i> 试卷管理</a>
+                            	
                         </li>
                			<li>
                             <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="blank.html">教师管理</a>
+                                        <a href="#">教师管理</a>
                                     </li>
                                     <li>
-                                        <a href="blank.html">学生管理</a>
+                                        <a href="#">学生管理</a>
                                     </li>
                                     
                                  </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 公告管理<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="blank.html">公告管理</a>
-                                    </li>
-                                    
-                                 </ul>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 公告管理</a>
+                            	
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="blank.html">不知道</a>
+                                    <a href="#">不知道</a>
                                 </li>
                                 <li>
-                                    <a href="login.html">退出登陆</a>
+                                    <a href="#">退出登陆</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -179,7 +155,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">

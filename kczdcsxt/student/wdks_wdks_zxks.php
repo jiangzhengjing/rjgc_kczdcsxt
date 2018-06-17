@@ -145,93 +145,138 @@
             <!-- /.navbar-static-side -->
         </nav>
 
-        <!-- Page Content -->
         <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">我的考试</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">在线考试</h1>
                 </div>
-                <!-- /.row -->
-               <div class="row">
-                       <div class="col-lg-12">
-                            <form class="form">
-                                <table class="table table-striped table-hover table-main">
-                                    <thead>
-                                        <tr>
-                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">试卷名称</th>
-                                            <th class="table-ctt-stlx">试卷状态</th>
-                                            <th class="table-ctt-stnd">开考时间</th>
-                                            <th class="table-ctt-stzt">结束时间</th>
-                                            <th class="table-ctt-sttg">试卷说明</th>
-                                            <th class="table-ctt-cz">操作</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php 
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            一、选择题
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <form role="form" action="pgsj.php" method="post">
+                                      <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
+                                            $sql=mysql_query(" SELECT * FROM danxuan");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['sjmc'] = $abc['sjmc'];
-                                                $data [$i]['sjzt'] = $abc['sjzt'];
-                                                $data [$i]['kksj'] = $abc['kksj'];
-												$data [$i]['jssj'] = $abc['jssj'];
-												$data [$i]['sjsm'] = $abc['sjsm'];
-                                                
+                                                $data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
+                                                $data [$i]['shiti_xuanxiangA'] = $abc['shiti_xuanxiangA'];
+                                                $data [$i]['id'] = $abc['Id'];
+                                                $data [$i]['shiti_xuanxiangB'] = $abc['shiti_xuanxiangB'];
+												
+												
+                                                $data [$i]['shiti_xuanxiangC'] = $abc['shiti_xuanxiangC'];
+                                                $data [$i]['shiti_xuanxiangD'] = $abc['shiti_xuanxiangD'];
+                                               
                                                 $i++;
                                             }
-                                            //var_dump($data);die; ?>
+                                            //var_dump($data);die;?>
+                                          
+                                        <div class="form-group">
                                             <?php
-                                            foreach ($data as $key => $value) {
-                                            ?>
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td><?php echo $value['sjmc'] ?></td>
-                                                    <td><a href="#"><?php echo $value['sjzt'] ?></a></td>
-                                                     
-                                                    <td><?php echo $value['kksj'] ?></td>
-                                                    <td><?php echo $value['jssj'] ?></td>
-                                                     <td><?php echo $value['sjsm'] ?></td>
-                                                   <td>
-                                                <div class="btn-toolbar">
-                                                    <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_zxks.php">开始考试</a></button>
-                                                       
-                                                    </div>
-                                                </div>
-                                            </td>
-                                                </tr>
-                                        <?php }?>
-                                     
-                                    </tbody>
-                                </table>
-                                <div class="cf" style="text-align: center;">
-								
-                                    <div class="fr">
-                                        <ul class="pagination tpl-pagination">
-                                            <li class="disabled"><a href="#">«</a></li>
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#">5</a></li>
-                                            <li><a href="#">»</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <hr>
+											$j=0;
+											
+											$array_id=array();
+                                            foreach ($data as $key => $value) {$j++;$option="option".$j; ?>
+                                            <label> <?php echo  $value['id'],"、",$value['shiti_tigan'] ?></label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios1" value="A" >A、<?php echo $value['shiti_xuanxiangA'] ?>
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios2" value="B">B、<?php echo $value['shiti_xuanxiangB'] ?>
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios3" value="C">C、<?php echo $value['shiti_xuanxiangC'] ?>
+                                                </label>
+                                            </div>
+                                                <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios4" value="D">D、<?php echo $value['shiti_xuanxiangD'] ?>
+                                                </label>
+                                            </div>
+                                                <?php
+												array_push($array_id,$value['id']);				 
+												}?>
+                                    <?php foreach($array_id as $value) {?>
+                                     <input type="hidden" name="tijiao_id[]" value="<?php echo $value?>" />
+                                      <?php } ?>
 
-                            </form>
+                                      
+                                        </div>
+                                       
+                                  
+<!--                                    </form>-->
+                               
+                        <div class="panel-heading" style="background-color: #f5f5f5;width: 212%;margin-left: -15px;">
+                            二、判断题
                         </div>
-
+                       
+<!--                                    <form role="form">-->
+                                     <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM panduan");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
+                                                $data [$i]['shiti_xuanxiang'] = $abc['shiti_xuanxiang'];
+                                              	$data [$i]['id'] = $abc['Id'];
+                                                $i++;
+                                            }
+                                            //var_dump($data);die;?>
+                                        <div class="form-group">
+                                            <?php
+											 $n=0;
+											$array_id1=array();
+                                            foreach ($data as $key => $value) { $n++;$opp="opp".$n ?>
+                                            <label><?php echo $key+1,"、",$value['shiti_tigan'] ?></label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="<?php echo "$opp" ?>" id="optionsRadios1" value="T" >T
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="<?php echo "$opp" ?>" id="optionsRadios2" value="F">F
+                                                </label>
+                                            </div>
+                                            <?php array_push($array_id1,$value['id']);}?>
+                                        </div>
+                                    <?php foreach($array_id1 as $value) {?>
+                                     <input type="hidden" name="tijiao_id1[]" value="<?php echo $value?>" />
+                                      <?php } ?>
+                                        
+                                        <button type="submit" class="btn btn-default">提交</button>
+                                       
+                                    </form>
+                                </div>
+                              
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
                     </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.container-fluid -->
+             
+            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 

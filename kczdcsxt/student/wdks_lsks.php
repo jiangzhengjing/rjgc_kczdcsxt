@@ -79,7 +79,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-           <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -102,10 +102,10 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的试卷<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="wdks_wdks.php">我的试卷</a>
+                                        <a href="wdks_wdks.php">我的考试</a>
                                     </li>
                                     <li>
                                         <a href="wdks_lsks.php">历史考试</a>
@@ -150,82 +150,55 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">管理试题</h1>
+                        <h1 class="page-header">历史考试</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
-                 <div class="row">
+               <div class="row">
                        <div class="col-lg-12">
                             <form class="form">
-                             <table class="table table-striped table-hover table-main">
+                                <table class="table table-striped table-hover table-main">
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
                                             <th class="table-ctt-sstk">试卷名称</th>
-                                            <th class="table-ctt-stlx">试卷状态</th>
-                                            <th class="table-ctt-stnd">考试时长</th>
-                                            <th class="table-ctt-stzt">考试耗时</th>
-                                            <th class="table-ctt-sttg">考试时间</th>
-                                            <th class="table-ctt-cjr">试卷类型</th>
-                                             <th class="table-ctt-cjr">试卷得分</th>
-                                              <th class="table-ctt-cjr">总分</th>
+                                            <th class="table-ctt-sttg">试卷说明</th>
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                             <?php 
+                                    <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM shiti");
+                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['shiti_tiku'] = $abc['shiti_tiku'];
-                                                $data [$i]['shiti_leixing'] = $abc['shiti_leixing'];
-                                                $data [$i]['shiti_nandu'] = $abc['shiti_nandu'];
-												$data [$i]['shiti_zhuangtai'] = $abc['shiti_zhuangtai'];
-												$data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
-                                                $data [$i]['shiti_chuangjianren'] = $abc['shiti_chuangjianren'];
-                                               
+                                                $data [$i]['sjmc'] = $abc['sjmc'];
+												$data [$i]['sjsm'] = $abc['sjsm'];
+                                                
                                                 $i++;
                                             }
                                             //var_dump($data);die; ?>
                                             <?php
                                             foreach ($data as $key => $value) {
                                             ?>
-                                               
-                                      
-                                        <tr>
-                                            <td><input type="checkbox"></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_tiku'] ?></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_leixing'] ?></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_nandu'] ?></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_zhuangtai'] ?></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_tigan'] ?></td>
-                                            <td class="hide-sm-only">
-                                            <?php echo $value['shiti_chuangjianren'] ?></td>
-                                            
-                                            <td class="hide-sm-only">
-                                            11</td>
-                                           
-                                                <td class="hide-sm-only">
-                                            22</td>
-                                          <td>
+                                                <tr>
+                                                    <td><input type="checkbox"></td>
+                                                    <td><?php echo $value['sjmc'] ?></td>
+                                   
+                                                     <td><?php echo $value['sjsm'] ?></td>
+                                                   <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_zxks.php">详情</a></button>
+                                                       
                                                     </div>
                                                 </div>
                                             </td>
-                                        </tr>
-                                      <?php }?>
+                                                </tr>
+                                        <?php }?>
+                                     
                                     </tbody>
                                 </table>
                                 <div class="cf" style="text-align: center;">
