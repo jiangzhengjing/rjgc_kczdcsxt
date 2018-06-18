@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,20 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!-- jzj-style -->
-    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
@@ -30,7 +24,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.html">在线考试系统</a>
@@ -79,9 +73,9 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-             <!-- /.navbar-top-links -->
+            <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation" style="width: 250px;">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -102,73 +96,39 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="wdks_wdks.php">我的试卷</a>
-                                    </li>
-                                    <li>
-                                        <a href="wdks_lsks.php">历史试卷</a>
-                                    </li>
-                               </ul>
+                            <a href="xscj.php"><i class="fa fa-edit fa-fw"></i> 学生成绩</a>
+                            	
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="zwjc_zwjc.php">自我检测</a>
-                                    </li>
-                                    <li>
-                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
-                                    </li>                             
-                                 </ul>
+                            <a href="sjfx.php"><i class="fa fa-edit fa-fw"></i> 试卷分析</a>
+                            	
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="grzx_wdctj.php">我的错题集</a>
-                                </li>
-                                <li>
-                                    <a href="grzx_xgmm.php">修改密码</a>
-                                </li>
-                                  <li>
-                                    <a href="grzx_zhxx.php">账户信息</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                       
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
-        <!-- Page Content -->
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">自我检测</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
+ <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">试卷详情</h1>
                 </div>
-                <!-- /.row -->
-                 <div class="row">
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-							<a href="zwjc_zwjc.php">单选题&nbsp;&nbsp;</a>
-                            <a href="zwjc_zwjc_duoxuan.php">多选题&nbsp;&nbsp;</a>
-                            <a href="zwjc_zwjc_panduan.php">判断题&nbsp;&nbsp;</a>
-                            <a href="zwjc_zwjc_jianda.php">简答题&nbsp;&nbsp;</a>
+                            一、选择题
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="zwjcdanxuan.php" method="post">
-                                       <?php 
+                                <div class="col-lg-6">
+                                    <form role="form" action="pgsj.php" method="post">
+                                      <?php 
                                             include("conn.php");
                                             $sql=mysql_query(" SELECT * FROM danxuan");
                                             $i = 0;
@@ -182,6 +142,7 @@
 												
                                                 $data [$i]['shiti_xuanxiangC'] = $abc['shiti_xuanxiangC'];
                                                 $data [$i]['shiti_xuanxiangD'] = $abc['shiti_xuanxiangD'];
+												$data [$i]['danxuan_daan'] = $abc['danxuan_daan'];
                                                
                                                 $i++;
                                             }
@@ -189,34 +150,126 @@
                                           
                                         <div class="form-group">
                                             <?php
-											$j=rand(0,58);?>
-                                            <label> <?php echo  $data [$j]['id'],"、",$data [$j]['shiti_tigan'] ?></label>
+											$j=0;
+											
+											$array_id=array();
+                                            for ($m=0;$m<10;$m++) {$j++;$option="option".$j;
+																   $k=rand(0,58);
+											 ?>
+                                          
+                                            <div class="radio">
+                                              
+                                            <p style="width: 900px;"> <?php echo  $m+1,"、",$data [$k]['shiti_tigan']," 正确答案：",$data [$k]['danxuan_daan'] ?>
+                                            </p>
+                                            </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="danxuan_daan" id="optionsRadios1" value="A" >A、<?php echo $data [$j]['shiti_xuanxiangA'] ?>
+                                                   
+                                                     A、<?php echo $data [$k]['shiti_xuanxiangA'] ?>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="danxuan_daan" id="optionsRadios2" value="B">B、<?php echo $data [$j]['shiti_xuanxiangB'] ?>
+                                                    B、<?php echo $data [$k]['shiti_xuanxiangB'] ?>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="danxuan_daan" id="optionsRadios3" value="C">C、<?php echo $data [$j]['shiti_xuanxiangC'] ?>
+                                                   C、<?php echo $data [$k]['shiti_xuanxiangC'] ?>
                                                 </label>
                                             </div>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="danxuan_daan" id="optionsRadios4" value="D">D、<?php echo $data [$j]['shiti_xuanxiangD'] ?>
+                                                   D、<?php echo $data [$k]['shiti_xuanxiangD'] ?>
                                                 </label>
                                             </div>
-
-                                     <input type="hidden" name="tijiao_id" value="<?php echo $data [$j]['id']?>" />
+                                                <p ><?php
+												
+												$daan="danxuan_daan".$j;
+												$sql2=mysql_query(" SELECT * FROM shijuan ");
+									             while($abc = mysql_fetch_array($sql2))
+												 {
+													 
+													 $daan1=$abc[$daan];
+													 
+												 }
+												$string="你选择的答案是:".$daan1;
+											 if($daan1)
+											 {
+												 echo $string;
+											 }
+											else
+											{
+												echo "sb";
+											}
+												 ?>
+                                               </p> 
+                                          
+                                      <?php } ?>
 
                                       
                                         </div>
-										<button type="submit" class="btn btn-default">下一题</button>
+                                       
+                                  
+<!--                                    </form>-->
+                               
+                        <div class="panel-heading" style="background-color: #f5f5f5;width: 212%;margin-left: -15px;">
+                            二、判断题
+                        </div>
+                       
+<!--                                    <form role="form">-->
+                                     <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM panduan");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
+                                                $data [$i]['shiti_xuanxiang'] = $abc['shiti_xuanxiang'];
+                                              	$data [$i]['id'] = $abc['Id'];
+												$data [$i]['panduan_daan'] = $abc['panduan_daan'];
+                                                $i++;
+                                            }
+                                            //var_dump($data);die;?>
+                                        <div class="form-group">
+                                            <?php
+											 $n=0;
+											$array_id1=array();
+                                            for($m=0;$m<10;$m++) { $n++;$opp="opp".$n;
+											$k=rand(0,27);?>
+                                            <p style="width: 800px;">
+                                              
+                                             <?php echo $m+1,"、",$data [$k]['shiti_tigan'],"          正确答案：",$data [$k]['panduan_daan'] ?>
+                                             </p>
+                                             <p>
+                                              <?php
+												$daan="panduan_daan".$n;
+												$sql3=mysql_query(" SELECT * FROM shijuan ");
+												
+									             while($abcd = mysql_fetch_array($sql3))
+												 {
+													
+													 $daan1=$abcd[$daan];
+													
+													 
+												 }
+												$string="           你选择的答案是:".$daan1;
+											 if($daan1)
+											 {
+												 echo $string;
+											 }
+											else
+											{
+												echo "sb";
+											}
+												 ?>
+                                           </p>
+                                            <?php }?>
+                                          
+                                           
+                                        
+                                        <button  class="btn btn-default"><a href="xscj.php">返回</a></button>
+                                       
                                     </form>
                                 </div>
                               
@@ -229,9 +282,8 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
+             
+            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 

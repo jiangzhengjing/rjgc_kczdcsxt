@@ -79,7 +79,7 @@
                 </li>
                 <!-- /.dropdown -->
             </ul>
-           <!-- /.navbar-top-links -->
+             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
@@ -105,10 +105,10 @@
                             <a href="#"><i class="fa fa-edit fa-fw"></i> 我的考试<span class="fa arrow"></span></a>
                             	<ul class="nav nav-second-level">
                                     <li>
-                                        <a href="wdks_wdks.php">我的考试</a>
+                                        <a href="wdks_wdks.php">我的试卷</a>
                                     </li>
                                     <li>
-                                        <a href="wdks_lsks.php">历史考试</a>
+                                        <a href="wdks_lsks.php">历史试卷</a>
                                     </li>
                                </ul>
                         </li>
@@ -133,7 +133,7 @@
                                     <a href="grzx_xgmm.php">修改密码</a>
                                 </li>
                                   <li>
-                                    <a href=grzx_zhxx.php>账户信息</a>
+                                    <a href="grzx_zhxx.php">账户信息</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
@@ -150,7 +150,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">账户信息</h1>
+                        <h1 class="page-header">自我检测</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -159,53 +159,54 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            账户信息
+							<a href="zwjc_zwjc.php">单选题&nbsp;&nbsp;</a>
+                            <a href="zwjc_zwjc_duoxuan.php">多选题&nbsp;&nbsp;</a>
+                            <a href="zwjc_zwjc_panduan.php">判断题&nbsp;&nbsp;</a>
+                            <a href="zwjc_zwjc_jianda.php">简答题&nbsp;&nbsp;</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="welcome.php" method="post">
-                                       <div class="col-lg-6">
-                                       <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">用户名:</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 张三
-                                            </div>
-                                            
-                                        </div>
-                                          <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">所属学院:</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 信息工程学院
-                                            </div>
-                                            
-                                        </div>
+                                    <form class="form form-horizontal" action="zwjcpanduan.php" method="post">
+                                       <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM panduan");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
+                                                $data [$i]['shiti_xuanxiangA'] = $abc['shiti_xuanxiangA'];
+                                                $data [$i]['id'] = $abc['Id'];
+                                                $data [$i]['shiti_xuanxiangB'] = $abc['shiti_xuanxiangB'];
+												
+												
+                                                $data [$i]['shiti_xuanxiangC'] = $abc['shiti_xuanxiangC'];
+                                                $data [$i]['shiti_xuanxiangD'] = $abc['shiti_xuanxiangD'];
+                                               
+                                                $i++;
+                                            }
+                                            //var_dump($data);die;?>
+                                          
                                         <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">所属班级:</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 计算机152
+                                            <?php
+											$j=rand(0,27);?>
+                                            <label> <?php echo  $data [$j]['id'],"、",$data [$j]['shiti_tigan'] ?></label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="panduan_daan" id="optionsRadios1" value="T" >T
+                                                </label>
                                             </div>
-                                            
-                                        </div>
-                                   
-                                        </div>
-                                   
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="panduan_daan" id="optionsRadios2" value="F">F
+                                                </label>
+                                            </div>
+
+                                     <input type="hidden" name="tijiao_id" value="<?php echo $data [$j]['id']?>" />
+
                                       
-                                       
-                                 
-                                     
-                                 
-                                     <div class="col-lg-12">
-                                      
-                                     
-                                       <button type="submit" class="btn btn-default" style=" margin-left: 330px;">提交</button>
-                                       
-                                        <button type="reset" class="btn btn-default" style=" margin-left: 30px;">撤销</button>
-                                       
-                                     </div>
+                                        </div>
+										<button type="submit" class="btn btn-default">下一题</button>
                                     </form>
                                 </div>
                               

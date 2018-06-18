@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -70,7 +70,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -146,64 +146,139 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">在线练习</h1>
+                    <h1 class="page-header">我的错题集</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
           <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            一、选择题
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <form role="form">
-                                     
-                                        <div class="form-group">
-                                            <label>1、这题你选什么？</label>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>A、哈哈哈
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">B、啦啦啦
-                                                </label>
-                                            </div>
-                                            <div class="radio">
-                                                <label>
-                                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">C、嘻嘻嘻
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>2、你选什么？</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>A、哈哈哈
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">B、哈哈哈
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">C、哈哈哈
-                                            </label>
-                                        </div>
-                                        
-                                        <button type="submit" class="btn btn-default">提交</button>
-                                       
-                                    </form>
+                    <form class="form">
+                             <table class="table table-striped table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                            <th class="table-ctt-sstk">试题题号</th>
+											<th class="table-ctt-stlx">试题题库</th>
+                                            <th class="table-ctt-stlx">试题类型</th>
+											<th class="table-ctt-sttg">试题难度</th>
+                                            <th class="table-ctt-stnd">试题内容</th>
+                                            <th class="table-ctt-stzt">提交答案</th>
+                                            <th class="table-ctt-sttg">正确答案</th>
+                                            
+                                            <th class="table-ctt-cz">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                             <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM lishipanduan");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+												if($abc['user']==$user && $abc['iscorrect']==0)
+												{
+													$data [$i]['tihao'] = $abc['danxuanid'];
+													$data [$i]['leixing'] = "判断题";
+													$data [$i]['tijiaodaan'] = $abc['danxuandaan'];
+													$i++;
+												}
+                                            }
+											$sql1=mysql_query(" SELECT * FROM panduan");
+                                            while($abc = mysql_fetch_assoc($sql1))
+                                            {
+												for($j=0;$j<$i;$j++)
+												{
+													if($data [$j]['tihao'] == $abc['Id'])
+													{
+														$data [$j]['neirong'] = $abc['shiti_tigan'];
+														$data [$j]['zhengquedaan'] = $abc['panduan_daan'];
+														$data [$j]['nandu'] = $abc['shiti_nandu'];
+														$data [$j]['tiku'] = $abc['shiti_tiku'];
+													}
+												}
+                                            }
+                                            //var_dump($data);die; ?>
+											<?php
+											$sql=mysql_query(" SELECT * FROM lishidanxuan");
+                                            $m = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+												if($abc['user']==$user && $abc['iscorrect']==0)
+												{
+													$data [$i+$m]['tihao'] = $abc['danxuanid'];
+													$data [$i+$m]['leixing'] = "单选题";
+													$data [$i+$m]['tijiaodaan'] = $abc['danxuandaan'];
+													$m++;
+												}
+                                            }
+											$sql1=mysql_query(" SELECT * FROM danxuan");
+                                            while($abc = mysql_fetch_assoc($sql1))
+                                            {
+												for($j=$i;$j<$i+$m;$j++)
+												{
+													if($data [$j]['tihao'] == $abc['Id'])
+													{
+														$data [$j]['neirong'] = $abc['shiti_tigan'];
+														$data [$j]['zhengquedaan'] = $abc['danxuan_daan'];
+														$data [$j]['nandu'] = $abc['shiti_nandu'];
+														$data [$j]['tiku'] = $abc['shiti_tiku'];
+													}
+												}
+                                            }
+                                            //var_dump($data);die; ?>
+                                            <?php
+                                            foreach ($data as $key => $value) {
+                                            ?>
+                                               
+                                      
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['tihao'] ?></td>
+                                            <td class="hide-sm-only">
+											<?php echo $value['tiku'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['leixing'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['nandu'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['neirong'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['tijiaodaan'] ?></td>
+											<td class="hide-sm-only">
+                                            <?php echo $value['zhengquedaan'] ?></td>
+                                           
+                                            <td>
+                                                <div class="btn-toolbar">
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
+                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
+                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                      <?php }?>
+                                    </tbody>
+                                </table>
+                                <div class="cf" style="text-align: center;">
+								
+                                    <div class="fr">
+                                        <ul class="pagination tpl-pagination">
+                                            <li class="disabled"><a href="#">«</a></li>
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                              
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                                <hr>
+
+                            </form>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

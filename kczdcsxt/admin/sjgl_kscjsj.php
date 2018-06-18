@@ -9,29 +9,27 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+       <!-- jzj-style -->
+    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 
     <div id="wrapper">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+               <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="index.html">课程自动检测系统</a>
+                <a class="navbar-brand" href="index.html">在线考试系统</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -40,7 +38,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-                    
+
                     <!-- /.dropdown-messages -->
                 </li>
                 <!-- /.dropdown -->
@@ -64,14 +62,22 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
-
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php session_start();$user=$_SESSION['user'];echo $user;?></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        </li>
+                    </ul>
                     <!-- /.dropdown-user -->
                 </li>
                 <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
+          <!-- /.navbar-top-links -->
 
-             <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -86,29 +92,46 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
+                           <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> 首页</a>
                         </li>
                        
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线练习</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 题库管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="tkgl_add_tiku.php">新增题库</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_tikulist.php">题库列表</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_shiti.php">新增试题</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_piliangdaorushiti.php">导入试题</a>
+                                    </li>
+                                    <li>
+                                        <a href="tkgl_add_guanlishiti.php">管理试题</a>
+                                    </li>
+                               </ul>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 在线考试</a>
+                            <a href="sjgl_sjgl.php"><i class="fa fa-edit fa-fw"></i> 试卷管理</a>
+                            	
                         </li>
-               
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">不知道</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">退出登陆</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+               			<li>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 用户管理<span class="fa arrow"></span></a>
+                            	<ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="#">教师管理</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">学生管理</a>
+                                    </li>
+                                    
+                                 </ul>
                         </li>
                     </ul>
                 </div>

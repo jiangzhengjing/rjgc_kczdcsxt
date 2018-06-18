@@ -22,7 +22,9 @@
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
    <!-- jzj-style -->
     <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-
+<style>
+	.lable{width: 900px;}	
+</style>
 </head>
 
 <body>
@@ -72,7 +74,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -144,8 +146,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
-        <div id="page-wrapper">
+<div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">试卷详情</h1>
@@ -188,30 +189,37 @@
 											$j=0;
 											
 											$array_id=array();
-                                            foreach ($data as $key => $value) {$j++;$option="option".$j; ?>
-                                            <label> <?php echo  $value['id'],"、",$value['shiti_tigan']," 正确答案：",$value['danxuan_daan'] ?></label>
+                                            for ($m=0;$m<10;$m++) {$j++;$option="option".$j;
+																   $k=rand(0,58);
+											 ?>
+                                          
+                                            <div class="radio">
+                                              
+                                            <p style="width: 900px;"> <?php echo  $m+1,"、",$data [$k]['shiti_tigan']," 正确答案：",$data [$k]['danxuan_daan'] ?>
+                                            </p>
+                                            </div>
                                             <div class="radio">
                                                 <label>
-                                                    A、<?php echo $value['shiti_xuanxiangA'] ?>
+                                                   
+                                                     A、<?php echo $data [$k]['shiti_xuanxiangA'] ?>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    B、<?php echo $value['shiti_xuanxiangB'] ?>
+                                                    B、<?php echo $data [$k]['shiti_xuanxiangB'] ?>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    C、<?php echo $value['shiti_xuanxiangC'] ?>
+                                                   C、<?php echo $data [$k]['shiti_xuanxiangC'] ?>
                                                 </label>
                                             </div>
                                                 <div class="radio">
                                                 <label>
-                                                    D、<?php echo $value['shiti_xuanxiangD'] ?>
+                                                   D、<?php echo $data [$k]['shiti_xuanxiangD'] ?>
                                                 </label>
                                             </div>
-                                            
-                                               <p><?php
+                                                <p ><?php
 												
 												$daan="danxuan_daan".$j;
 												$sql2=mysql_query(" SELECT * FROM shijuan ");
@@ -230,9 +238,10 @@
 											{
 												echo "sb";
 											}
-												 ?></p>
-                                                <?php }?>
-                                            
+												 ?>
+                                               </p> 
+                                          
+                                      <?php } ?>
 
                                       
                                         </div>
@@ -262,11 +271,14 @@
                                             <?php
 											 $n=0;
 											$array_id1=array();
-                                            foreach ($data as $key => $value) { $n++;$opp="opp".$n ?>
-                                            <label><?php echo $key+1,"、",$value['shiti_tigan']," 正确答案：",$value['panduan_daan'] ?></label>
-                                            <p>
-                                            <?php
-												
+                                            for($m=0;$m<10;$m++) { $n++;$opp="opp".$n;
+											$k=rand(0,27);?>
+                                            <p style="width: 800px;">
+                                              
+                                             <?php echo $m+1,"、",$data [$k]['shiti_tigan'],"          正确答案：",$data [$k]['panduan_daan'] ?>
+                                             </p>
+                                             <p>
+                                              <?php
 												$daan="panduan_daan".$n;
 												$sql3=mysql_query(" SELECT * FROM shijuan ");
 												
@@ -277,7 +289,7 @@
 													
 													 
 												 }
-												$string="你选择的答案是:".$daan1;
+												$string="           你选择的答案是:".$daan1;
 											 if($daan1)
 											 {
 												 echo $string;
@@ -286,12 +298,13 @@
 											{
 												echo "sb";
 											}
-												 ?></p>
+												 ?>
+                                           </p>
                                             <?php }?>
-                                        </div>
-                                   
+                                          
+                                           
                                         
-                                    
+                                        <button  class="btn btn-default"><a href="xscj.php">返回</a></button>
                                        
                                     </form>
                                 </div>
