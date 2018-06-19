@@ -161,12 +161,21 @@
                              <table class="table table-striped table-hover table-main">
                                     <thead>
                                         <tr>
+<<<<<<< HEAD
                                            
                                             <th class="table-ctt-sstk">题号</th>
 											<th class="table-ctt-stnd">题库</th>
                                             <th class="table-ctt-stlx">类型</th>
 											<th class="table-ctt-sttg">难度</th>
                                             <th class="table-ctt-stnd">内容</th>
+=======
+                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                            <th class="table-ctt-sstk">试题题号</th>
+											<th class="table-ctt-stnd">试题题库</th>
+                                            <th class="table-ctt-stlx">试题类型</th>
+											<th class="table-ctt-sttg">试题难度</th>
+                                            <th class="table-ctt-stnd">试题内容</th>
+>>>>>>> be560b26731a40300eca13b81d3d70edc0140452
                                             <th class="table-ctt-stzt">提交答案</th>
                                             <th class="table-ctt-sttg">正确答案</th>
                                             
@@ -241,6 +250,11 @@
                                             <td class="hide-sm-only">
                                             <?php echo $value['tihao'] ?></td>
                                             <td class="hide-sm-only">
+<<<<<<< HEAD
+=======
+                                            <?php echo $value['tihao'] ?></td>
+                                            <td class="hide-sm-only">
+>>>>>>> be560b26731a40300eca13b81d3d70edc0140452
 											<?php echo $value['tiku'] ?></td>
                                             <td class="hide-sm-only">
                                             <?php echo $value['leixing'] ?></td>

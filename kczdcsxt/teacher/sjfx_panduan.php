@@ -157,6 +157,7 @@
                         <table class="table table-striped table-hover table-main">
                           <thead>
                             <tr>
+<<<<<<< HEAD
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
                                             <th class="table-ctt-sstk" style="width: 6%">题号</th>
 											<th class="table-ctt-stnd" style="width: 7%">题库</th>
@@ -166,6 +167,19 @@
 											<th class="table-ctt-stzt" style="width: 7%">错误率</th>
                                             <th class="table-ctt-cz" style="width: 13%">操作</th>
                                         </tr>
+=======
+                              <th class="table-check">
+                                <input type="checkbox" class="tpl-table-fz-check">
+                              </th>
+                              <th class="table-ctt-sstk">试题题号</th>
+                              <th class="table-ctt-stnd">试题题库</th>
+                              <th class="table-ctt-sttg">试题难度</th>
+                              <th class="table-ctt-stnd">试题内容</th>
+                              <th class="table-ctt-stzt">错误次数</th>
+                              <th class="table-ctt-stzt">错误率</th>
+                              <th class="table-ctt-cz">操作</th>
+                            </tr>
+>>>>>>> be560b26731a40300eca13b81d3d70edc0140452
                           </thead>
                           <tbody>
                             <?php 
@@ -238,7 +252,13 @@
                                     <button class="btn btn-default btn-xs text-secondary">
                                       <span class="icon-pencil-square-o"></span> 编辑
                                     </button>
+<<<<<<< HEAD
                                    
+=======
+                                    <button class="btn btn-default btn-xs hide-sm-only">
+                                      <span class="icon-copy"></span> 复制
+                                    </button>
+>>>>>>> be560b26731a40300eca13b81d3d70edc0140452
                                     <button class="btn btn-default btn-xs text-danger hide-sm-only">
                                       <span class="icon-trash-o"></span> 删除
                                     </button>

@@ -187,7 +187,11 @@
                                             }
                                             //var_dump($data);die;?>
                                           
+<<<<<<< HEAD
                                          <div class="form-group" style="margin-left: 10px;">
+=======
+                                        <div class="form-group">
+>>>>>>> be560b26731a40300eca13b81d3d70edc0140452
                                             <?php
 											$j=rand(0,27);?>
                                             <label> <?php echo  $data [$j]['id'],"、",$data [$j]['shiti_tigan'] ?></label>

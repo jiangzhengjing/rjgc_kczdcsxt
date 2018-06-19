@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -126,10 +126,17 @@
                             	<ul class="nav nav-second-level">
                                     <li>
                                         <a href="#">教师管理</a>
+
                                     </li>
                                     <li>
                                         <a href="#">学生管理</a>
                                     </li>
+
+                                    </li>
+                                    <li>
+                                        <a href="#">学生管理</a>
+                                    </li>
+
                                     
                                  </ul>
                         </li>

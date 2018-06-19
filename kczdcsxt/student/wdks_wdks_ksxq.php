@@ -304,7 +304,11 @@
                                           
                                            
                                         
+<<<<<<< HEAD
                                         <button  class="btn btn-default"><a href="wdks_lsks.php">返回</a></button>
+=======
+                                        <button  class="btn btn-default"><a href="xscj.php">返回</a></button>
+>>>>>>> be560b26731a40300eca13b81d3d70edc0140452
                                        
                                     </form>
                                 </div>
