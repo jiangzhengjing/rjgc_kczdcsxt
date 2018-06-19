@@ -9,22 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!-- jzj-style -->
-    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-<style>
-	.lable{width: 900px;}	
-</style>
 </head>
 
 <body>
@@ -32,7 +24,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.html">在线考试系统</a>
@@ -74,7 +66,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -83,7 +75,7 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation" style="width: 250px;">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -104,49 +96,22 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的试卷<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="wdks_wdks.php">我的考试</a>
-                                    </li>
-                                    <li>
-                                        <a href="wdks_lsks.php">历史考试</a>
-                                    </li>
-                               </ul>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i> 学生成绩</a>
+                            	
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="zwjc_zwjc.php">自我检测</a>
-                                    </li>
-                                    <li>
-                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
-                                    </li>                             
-                                 </ul>
+                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 试卷分析</a>
+                            	
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="grzx_wdctj.php">我的错题集</a>
-                                </li>
-                                <li>
-                                    <a href="grzx_xgmm.php">修改密码</a>
-                                </li>
-                                  <li>
-                                    <a href="grzx_zhxx.php">账户信息</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                       
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-<div id="page-wrapper">
+
+        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">试卷详情</h1>
@@ -189,37 +154,30 @@
 											$j=0;
 											
 											$array_id=array();
-                                            for ($m=0;$m<10;$m++) {$j++;$option="option".$j;
-																   $k=rand(0,58);
-											 ?>
-                                          
-                                            <div class="radio">
-                                              
-                                            <p style="width: 900px;"> <?php echo  $m+1,"、",$data [$k]['shiti_tigan']," 正确答案：",$data [$k]['danxuan_daan'] ?>
-                                            </p>
-                                            </div>
+                                            foreach ($data as $key => $value) {$j++;$option="option".$j; ?>
+                                            <label> <?php echo  $value['id'],"、",$value['shiti_tigan']," 正确答案：",$value['danxuan_daan'] ?></label>
                                             <div class="radio">
                                                 <label>
-                                                   
-                                                     A、<?php echo $data [$k]['shiti_xuanxiangA'] ?>
+                                                    选A的有<?php echo "1" ?>人
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    B、<?php echo $data [$k]['shiti_xuanxiangB'] ?>
+                                                    选B的有<?php echo "1" ?>人
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                   C、<?php echo $data [$k]['shiti_xuanxiangC'] ?>
+                                                    选C的有<?php echo "1" ?>人
                                                 </label>
                                             </div>
                                                 <div class="radio">
                                                 <label>
-                                                   D、<?php echo $data [$k]['shiti_xuanxiangD'] ?>
+                                                    选D的有<?php echo "1" ?>人
                                                 </label>
                                             </div>
-                                                <p ><?php
+                                            
+                                               <p><?php
 												
 												$daan="danxuan_daan".$j;
 												$sql2=mysql_query(" SELECT * FROM shijuan ");
@@ -232,16 +190,15 @@
 												$string="你选择的答案是:".$daan1;
 											 if($daan1)
 											 {
-												 echo $string;
+												 //echo $string;
 											 }
 											else
 											{
 												echo "sb";
 											}
-												 ?>
-                                               </p> 
-                                          
-                                      <?php } ?>
+												 ?></p>
+                                                <?php }?>
+                                            
 
                                       
                                         </div>
@@ -271,14 +228,11 @@
                                             <?php
 											 $n=0;
 											$array_id1=array();
-                                            for($m=0;$m<10;$m++) { $n++;$opp="opp".$n;
-											$k=rand(0,27);?>
-                                            <p style="width: 800px;">
-                                              
-                                             <?php echo $m+1,"、",$data [$k]['shiti_tigan'],"          正确答案：",$data [$k]['panduan_daan'] ?>
-                                             </p>
-                                             <p>
-                                              <?php
+                                            foreach ($data as $key => $value) { $n++;$opp="opp".$n ?>
+                                            <label><?php echo $key+1,"、",$value['shiti_tigan']," 正确答案：",$value['panduan_daan'] ?></label>
+                                            <p>
+                                            <?php
+												
 												$daan="panduan_daan".$n;
 												$sql3=mysql_query(" SELECT * FROM shijuan ");
 												
@@ -289,7 +243,7 @@
 													
 													 
 												 }
-												$string="           你选择的答案是:".$daan1;
+												$string="选T的有1人  选T的有1人";
 											 if($daan1)
 											 {
 												 echo $string;
@@ -298,13 +252,12 @@
 											{
 												echo "sb";
 											}
-												 ?>
-                                           </p>
+												 ?></p>
                                             <?php }?>
-                                          
-                                           
+                                        </div>
+                                   
                                         
-                                        <button  class="btn btn-default"><a href="wdks_lsks.php">返回</a></button>
+                                      <button  class="btn btn-default"><a href="xscj.php">返回</a></button>
                                        
                                     </form>
                                 </div>

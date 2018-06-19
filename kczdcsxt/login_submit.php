@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
     include("conn.php");
     $quanxian=$_POST[quanxian];
     $user=$_POST[user];
@@ -27,15 +27,15 @@
                     exit;
                 }
             }
-            if($i==0)
-            {
-                  echo "<script language=\"JavaScript\">\r\n";
-                  echo " alert(\"用户名不存在\");\r\n";
-                  echo " history.back();\r\n";
-                  echo "</script>";
-                  exit;
-            }
         }
+        if($i==0)
+        {
+             echo "<script language=\"JavaScript\">\r\n";
+             echo " alert(\"用户名不存在\");\r\n";
+             echo " history.back();\r\n";
+             echo "</script>";
+             exit;
+         }
     }
     else if($quanxian=="teacher")
     {
@@ -59,15 +59,15 @@
                     exit;
                 }
             }
-            if($i==0)
-            {
-                 echo "<script language=\"JavaScript\">\r\n";
-                 echo " alert(\"用户名不存在\");\r\n";
-                 echo " history.back();\r\n";
-                 echo "</script>";
-                 exit;
-            }
         }
+        if($i==0)
+        {
+             echo "<script language=\"JavaScript\">\r\n";
+             echo " alert(\"用户名不存在\");\r\n";
+             echo " history.back();\r\n";
+             echo "</script>";
+             exit;
+         }
     }
     else if($quanxian=="student")
     {
@@ -80,7 +80,7 @@
                 $i=1;
                 if($psd==$abc['password'])
                 {
-                    header ("Location: student/index.php?id=".$user);
+                    header ("Location: student/index.php");
                 }
                 else
                 {
@@ -91,15 +91,15 @@
                     exit;
                 }
             }
-            if($i==0)
-            {
-                echo "<script language=\"JavaScript\">\r\n";
-                echo " alert(\"用户名不存在\");\r\n";
-                echo " history.back();\r\n";
-                echo "</script>";
-                exit;
-            }
         }
+        if($i==0)
+        {
+             echo "<script language=\"JavaScript\">\r\n";
+             echo " alert(\"用户名不存在\");\r\n";
+             echo " history.back();\r\n";
+             echo "</script>";
+             exit;
+         }
     }
     
     

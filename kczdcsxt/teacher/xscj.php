@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,20 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!-- jzj-style -->
-    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
@@ -30,7 +24,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.html">在线考试系统</a>
@@ -81,7 +75,7 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation" style="width: 250px;">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -102,42 +96,14 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的试卷<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="wdks_wdks.php">我的考试</a>
-                                    </li>
-                                    <li>
-                                        <a href="wdks_lsks.php">历史考试</a>
-                                    </li>
-                               </ul>
+                            <a href="xscj.php"><i class="fa fa-edit fa-fw"></i> 学生成绩</a>
+                            	
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="zwjc_zwjc.php">自我检测</a>
-                                    </li>
-                                    <li>
-                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
-                                    </li>                             
-                                 </ul>
+                            <a href="sjfx.php"><i class="fa fa-edit fa-fw"></i> 试卷分析</a>
+                            	
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="grzx_wdctj.php">我的错题集</a>
-                                </li>
-                                <li>
-                                    <a href="grzx_xgmm.php">修改密码</a>
-                                </li>
-                                  <li>
-                                    <a href="grzx_zhxx.php">账户信息</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                       
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -150,7 +116,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">我的考试</h1>
+                        <h1 class="page-header">学生成绩</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -162,45 +128,39 @@
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                             <th class="table-ctt-cz">学生</th>
                                             <th class="table-ctt-sstk">试卷名称</th>
-                                            <th class="table-ctt-stlx">试卷状态</th>
-                                            <th class="table-ctt-stnd">开考时间</th>
-                                            <th class="table-ctt-stzt">结束时间</th>
-                                            <th class="table-ctt-sttg">试卷说明</th>
+											<th class="table-ctt-sttg">分数</th>
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
+											$sql=mysql_query(" SELECT * FROM shijuan");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['sjmc'] = $abc['sjmc'];
-                                                $data [$i]['sjzt'] = $abc['sjzt'];
-                                                $data [$i]['kksj'] = $abc['kksj'];
-												$data [$i]['jssj'] = $abc['jssj'];
-												$data [$i]['sjsm'] = $abc['sjsm'];
-                                                
-                                                $i++;
+
+													$data [$i]['user'] = $abc['user'];
+													$data [$i]['sjmc'] = '试卷'.$abc['Id'];
+													$data [$i]['score'] = $abc['score'];
+													$i++;
                                             }
                                             //var_dump($data);die; ?>
-                                            <?php
-                                            foreach ($data as $key => $value) {
+                                             <?php
+                                            foreach ((array)$data as $key => $value) {
                                             ?>
+                                               
                                                 <tr>
                                                     <td><input type="checkbox"></td>
+                                                    <td><?php echo $value['user'] ?></td>
                                                     <td><?php echo $value['sjmc'] ?></td>
-                                                    <td><a href="#"><?php echo $value['sjzt'] ?></a></td>
-                                                     
-                                                    <td><?php echo $value['kksj'] ?></td>
-                                                    <td><?php echo $value['jssj'] ?></td>
-                                                     <td><?php echo $value['sjsm'] ?></td>
+													 <td><?php echo $value['score'] ?></td>
                                                    <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_zxks.php">开始考试</a></button>
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="ksxq.php">详情</a></button>
                                                        
                                                     </div>
                                                 </div>

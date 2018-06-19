@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -72,7 +72,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -164,34 +164,34 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" action="welcome.php" method="post">
+                                    <form class="form form-horizontal" action="xgmm.php" method="post">
                                        <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="stlx" class="col-sm-3 form-label">用户名:</label>
                                             
                                             <div class="col-sm-9">
-                                                 admin
+                                                 <?php echo $user;?>
                                             </div>
                                             
                                         </div>
                                          <div class="form-group">
                                             <label for="sjwj" class="col-sm-3 form-label">原始密码：</label>
                                             <div class="col-sm-9">
-                                                 <input class="form-control" >
+                                                 <input type="password" class="form-control" name="yuanshipassword" >
                                             </div>
                                             
                                         </div>
                                          <div class="form-group">
                                             <label for="sjwj" class="col-sm-3 form-label">新密码：</label>
                                             <div class="col-sm-9">
-                                                 <input class="form-control" >
+                                                 <input type="password" class="form-control" name="newpassword" >
                                             </div>
                                             
                                         </div>
                                          <div class="form-group">
                                             <label for="sjwj" class="col-sm-3 form-label">确认密码：</label>
                                             <div class="col-sm-9">
-                                                 <input class="form-control" >
+                                                 <input type="password" class="form-control" name="newpassword2" >
                                             </div>
                                             
                                         </div>

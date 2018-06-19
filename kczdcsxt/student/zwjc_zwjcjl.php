@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -72,7 +72,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -150,7 +150,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">管理试题</h1>
+                        <h1 class="page-header">自我检测记录</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -161,12 +161,14 @@
                              <table class="table table-striped table-hover table-main">
                                     <thead>
                                         <tr>
-                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">所属题库</th>
-                                            <th class="table-ctt-stlx">卷面总分</th>
-                                            <th class="table-ctt-stnd">考试得分</th>
-                                            <th class="table-ctt-stzt">考试时间</th>
-                                            <th class="table-ctt-sttg">耗时</th>
+                                           
+                                            <th class="table-ctt-sstk">题号</th>
+											<th class="table-ctt-stnd">题库</th>
+                                            <th class="table-ctt-stlx">类型</th>
+											<th class="table-ctt-sttg">难度</th>
+                                            <th class="table-ctt-stnd">内容</th>
+                                            <th class="table-ctt-stzt">提交答案</th>
+                                            <th class="table-ctt-sttg">正确答案</th>
                                             
                                             <th class="table-ctt-cz">操作</th>
                                         </tr>
@@ -174,18 +176,59 @@
                                     <tbody>
                                              <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM shiti");
+                                            $sql=mysql_query(" SELECT * FROM lishipanduan");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['shiti_tiku'] = $abc['shiti_tiku'];
-                                                $data [$i]['shiti_leixing'] = $abc['shiti_leixing'];
-                                                $data [$i]['shiti_nandu'] = $abc['shiti_nandu'];
-												$data [$i]['shiti_zhuangtai'] = $abc['shiti_zhuangtai'];
-												$data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
-                                               
-                                               
-                                                $i++;
+												if($abc['user']==$user)
+												{
+													$data [$i]['tihao'] = $abc['danxuanid'];
+													$data [$i]['leixing'] = "判断题";
+													$data [$i]['tijiaodaan'] = $abc['danxuandaan'];
+													$i++;
+												}
+                                            }
+											$sql1=mysql_query(" SELECT * FROM panduan");
+                                            while($abc = mysql_fetch_assoc($sql1))
+                                            {
+												for($j=0;$j<$i;$j++)
+												{
+													if($data [$j]['tihao'] == $abc['Id'])
+													{
+														$data [$j]['neirong'] = $abc['shiti_tigan'];
+														$data [$j]['zhengquedaan'] = $abc['panduan_daan'];
+														$data [$j]['nandu'] = $abc['shiti_nandu'];
+														$data [$j]['tiku'] = $abc['shiti_tiku'];
+													}
+												}
+                                            }
+                                            //var_dump($data);die; ?>
+											<?php
+											$sql=mysql_query(" SELECT * FROM lishidanxuan");
+                                            $m = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+												if($abc['user']==$user)
+												{
+													$data [$i+$m]['tihao'] = $abc['danxuanid'];
+													$data [$i+$m]['leixing'] = "单选题";
+													$data [$i+$m]['tijiaodaan'] = $abc['danxuandaan'];
+													$m++;
+												}
+                                            }
+											$sql1=mysql_query(" SELECT * FROM danxuan");
+                                            while($abc = mysql_fetch_assoc($sql1))
+                                            {
+												for($j=$i;$j<$i+$m;$j++)
+												{
+													if($data [$j]['tihao'] == $abc['Id'])
+													{
+														$data [$j]['neirong'] = $abc['shiti_tigan'];
+														$data [$j]['zhengquedaan'] = $abc['danxuan_daan'];
+														$data [$j]['nandu'] = $abc['shiti_nandu'];
+														$data [$j]['tiku'] = $abc['shiti_tiku'];
+													}
+												}
                                             }
                                             //var_dump($data);die; ?>
                                             <?php
@@ -194,24 +237,30 @@
                                                
                                       
                                         <tr>
-                                            <td><input type="checkbox"></td>
+                                           
                                             <td class="hide-sm-only">
-                                            <?php echo $value['shiti_tiku'] ?></td>
+                                            <?php echo $value['tihao'] ?></td>
                                             <td class="hide-sm-only">
-                                            <?php echo $value['shiti_leixing'] ?></td>
+											<?php echo $value['tiku'] ?></td>
                                             <td class="hide-sm-only">
-                                            <?php echo $value['shiti_nandu'] ?></td>
+                                            <?php echo $value['leixing'] ?></td>
                                             <td class="hide-sm-only">
-                                            <?php echo $value['shiti_zhuangtai'] ?></td>
+                                            <?php echo $value['nandu'] ?></td>
                                             <td class="hide-sm-only">
-                                            <?php echo $value['shiti_tigan'] ?></td>
+                                            <?php echo $value['neirong'] ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['tijiaodaan'] ?></td>
+											<td class="hide-sm-only">
+                                            <?php echo $value['zhengquedaan'] ?></td>
                                            
                                             <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
                                                         <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
+                                                      
+                                                        
+                                                        <input type="button" class="btn btn-default btn-xs text-danger hide-sm-only" value="删除" onclick="del(this)" />
+                                                       
                                                     </div>
                                                 </div>
                                             </td>
@@ -258,7 +307,15 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../style/js/sb-admin-2.js"></script>
+<script type="text/javascript"> 
+// 创建删除函数
+function del(obj)
+{
+var tr=obj.parentNode.parentNode.parentNode.parentNode;
+tr.parentNode.removeChild(tr);
+}
 
+</script>
 </body>
 
 </html>

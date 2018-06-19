@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,20 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-   
     <title>课程自动检测系统</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-   <!-- jzj-style -->
-    <link href="../style/css/jzj-style.css" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
@@ -30,7 +24,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
 
                 <a class="navbar-brand" href="index.html">在线考试系统</a>
@@ -81,7 +75,7 @@
             </ul>
             <!-- /.navbar-top-links -->
 
-            <div class="navbar-default sidebar" role="navigation">
+            <div class="navbar-default sidebar" role="navigation" style="width: 250px;">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
@@ -102,42 +96,14 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 我的试卷<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="wdks_wdks.php">我的考试</a>
-                                    </li>
-                                    <li>
-                                        <a href="wdks_lsks.php">历史考试</a>
-                                    </li>
-                               </ul>
+                            <a href="xscj.php"><i class="fa fa-edit fa-fw"></i> 学生成绩</a>
+                            	
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> 自我检测<span class="fa arrow"></span></a>
-                            	<ul class="nav nav-second-level">
-                                    <li>
-                                        <a href="zwjc_zwjc.php">自我检测</a>
-                                    </li>
-                                    <li>
-                                        <a href="zwjc_zwjcjl.php">自我检测记录</a>
-                                    </li>                             
-                                 </ul>
+                            <a href="sjfx.php"><i class="fa fa-edit fa-fw"></i> 试卷分析</a>
+                            	
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="grzx_wdctj.php">我的错题集</a>
-                                </li>
-                                <li>
-                                    <a href="grzx_xgmm.php">修改密码</a>
-                                </li>
-                                  <li>
-                                    <a href="grzx_zhxx.php">账户信息</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                       
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -150,63 +116,105 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">我的考试</h1>
+                        <h1 class="page-header">试题分析</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                <div class="row">
                        <div class="col-lg-12">
+					   <div class="panel panel-default">
+                        <div class="panel-heading">
+							<a href="sjfx.php">单选题&nbsp;&nbsp;</a>
+                            <a href="sjfx_duoxuan.php">多选题&nbsp;&nbsp;</a>
+                            <a href="sjfx_panduan.php">判断题&nbsp;&nbsp;</a>
+                            <a href="sjfx_jianda.php">简答题&nbsp;&nbsp;</a>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
                             <form class="form">
                                 <table class="table table-striped table-hover table-main">
                                     <thead>
                                         <tr>
                                             <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">试卷名称</th>
-                                            <th class="table-ctt-stlx">试卷状态</th>
-                                            <th class="table-ctt-stnd">开考时间</th>
-                                            <th class="table-ctt-stzt">结束时间</th>
-                                            <th class="table-ctt-sttg">试卷说明</th>
-                                            <th class="table-ctt-cz">操作</th>
+                                            <th class="table-ctt-sstk" style="width: 6%">题号</th>
+											<th class="table-ctt-stnd" style="width: 7%">题库</th>
+											<th class="table-ctt-sttg" style="width: 7%">难度</th>
+                                            <th class="table-ctt-stnd" style="width: 50%">内容</th>
+                                            <th class="table-ctt-stzt" style="width: 10%">错误次数</th>
+											<th class="table-ctt-stzt" style="width: 7%">错误率</th>
+                                            <th class="table-ctt-cz" style="width: 13%">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php 
                                             include("conn.php");
-                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
+											$sql=mysql_query(" SELECT * FROM danxuan");
                                             $i = 0;
                                             while($abc = mysql_fetch_assoc($sql))
                                             {
-                                                $data [$i]['sjmc'] = $abc['sjmc'];
-                                                $data [$i]['sjzt'] = $abc['sjzt'];
-                                                $data [$i]['kksj'] = $abc['kksj'];
-												$data [$i]['jssj'] = $abc['jssj'];
-												$data [$i]['sjsm'] = $abc['sjsm'];
-                                                
-                                                $i++;
+                                                $data [$i]['tihao'] = $abc['Id'];
+												$data [$i]['tiku'] = $abc['shiti_tiku'];
+												$data [$i]['nandu'] = $abc['shiti_nandu'];
+												$data [$i]['neirong'] = $abc['shiti_tigan'];
+												$i++;
+                                            }
+											for($j=0;$j<$i;$j++)
+											{
+												$data [$j]['zhengque'] = 1;
+												$data [$j]['cuowu'] = 0;
+											}
+											$sql1=mysql_query(" SELECT * FROM lishidanxuan");
+											while($abc = mysql_fetch_assoc($sql1))
+                                            {
+												for($j=0;$j<$i;$j++)
+												{
+													if($abc['danxuanid']==$data [$j]['tihao'])
+													{
+														if($abc['iscorrect']==1)
+														{
+															$data [$j]['zhengque']+=1;
+														}
+														else
+														{
+															$data [$j]['cuowu']+=1;
+														}
+													}
+												}
                                             }
                                             //var_dump($data);die; ?>
-                                            <?php
+                                             <?php
                                             foreach ($data as $key => $value) {
                                             ?>
-                                                <tr>
-                                                    <td><input type="checkbox"></td>
-                                                    <td><?php echo $value['sjmc'] ?></td>
-                                                    <td><a href="#"><?php echo $value['sjzt'] ?></a></td>
-                                                     
-                                                    <td><?php echo $value['kksj'] ?></td>
-                                                    <td><?php echo $value['jssj'] ?></td>
-                                                     <td><?php echo $value['sjsm'] ?></td>
-                                                   <td>
+                                               
+                                      
+                                        <tr>
+                                            <td><input type="checkbox"></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['tihao']; ?></td>
+                                            <td class="hide-sm-only">
+											<?php echo $value['tiku']; ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['nandu']; ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['neirong']; ?></td>
+                                            <td class="hide-sm-only">
+                                            <?php echo $value['cuowu']; ?></td>
+											<td class="hide-sm-only">
+                                            <?php $zong=$value['cuowu']+$value['zhengque'];$cuo=$value['cuowu']/$zong*100;echo round($cuo,2); ?>%</td>
+                                           
+                                            <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_zxks.php">开始考试</a></button>
-                                                       
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
+                                                        
+                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
                                                     </div>
                                                 </div>
                                             </td>
-                                                </tr>
-                                        <?php }?>
+                                        </tr>
+                                      <?php }?>
                                      
                                     </tbody>
                                 </table>
@@ -227,6 +235,14 @@
                                 <hr>
 
                             </form>
+							</div>
+                              
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
                         </div>
 
                     </div>

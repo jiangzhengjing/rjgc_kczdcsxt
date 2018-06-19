@@ -10,13 +10,22 @@
     <meta name="author" content="">
 
     <title>课程自动检测系统</title>
+    
 
     <!-- Bootstrap Core CSS -->
     <link href="../style/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="../style/metisMenu/metisMenu.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="../style/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="../style/morrisjs/morris.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="../style/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+    
+    
 </head>
 
 <body>
@@ -66,7 +75,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -142,12 +151,187 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">在线考试系统</h1>
+                    <h1 class="page-header">欢迎使用在线考试系统</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            <!-- /.row -->
+           
+            <!-- /.row -->
+         
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> 进行中的考试
+                           
+                        </div>
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                             <div class="col-lg-12">
+                          
+                                <table class="table table-striped table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                           
+                                            <th class="table-ctt-sstk">试卷名称</th>
+                                            
+                                            <th class="table-ctt-stzt">结束时间</th>
+                                           
+                                            <th class="table-ctt-cz">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM shijuanguanli");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['sjmc'] = $abc['sjmc'];
+                                             
+                                               
+												$data [$i]['jssj'] = $abc['jssj'];
+												
+                                                
+                                                $i++;
+                                            }
+                                            //var_dump($data);die; ?>
+                                            <?php
+                                            foreach ($data as $key => $value) {
+                                            ?>
+                                                <tr>
+                                                   
+                                                    <td><?php echo $value['sjmc'] ?></td>
+                                                  
+                                                     
+                                                  
+                                                    <td><?php echo $value['jssj'] ?></td>
+                                                     
+                                                   <td>
+                                                <div class="btn-toolbar">
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_zxks.php">开始考试</a></button>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </td>
+                                                </tr>
+                                        <?php }?>
+                                     
+                                    </tbody>
+                                </table>
+                             
+                          
 
+                          
+                        </div>
+                        </div>
+                         <div class="panel-heading">
+                            <i class="fa fa-bar-chart-o fa-fw"></i> 参加过的考试
+                            
+                        </div>
+                        <div class="panel-body">
+                                <table class="table table-striped table-hover table-main">
+                                    <thead>
+                                        <tr>
+                                           
+                                            <th class="table-ctt-sstk">试卷名称</th>
+											<th class="table-ctt-sttg">分数</th>
+                                            <th class="table-ctt-cz">操作</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php 
+                                            include("conn.php");
+											$sql=mysql_query(" SELECT * FROM shijuan");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+												if($abc['user']==$user)
+												{
+													$data1 [$i]['sjmc'] = '试卷'.$abc['Id'];
+													$data1 [$i]['score'] = $abc['score'];
+													$i++;
+												}
+                                            }
+                                            //var_dump($data);die; ?>
+                                             <?php
+                                            foreach ((array)$data1 as $key => $value) {
+                                            ?>
+                                               
+                                                <tr>
+                                                    
+                                                    <td><?php echo $value['sjmc'] ?></td>
+													 <td><?php echo $value['score'] ?></td>
+                                                   <td>
+                                                <div class="btn-toolbar">
+                                                    <div class="btn-group btn-group-xs">
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_ksxq.php">详情</a></button>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </td>
+                                                </tr>
+                                        <?php }?>
+                                     
+                                    </tbody>
+                                </table>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                  
+                  
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-8 -->
+                 <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i> 最近的考试
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-comment fa-fw"></i> 2018年.NET程序设计期末测试
+                                    <span class="pull-right text-muted small"><em>2018.07.05</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-twitter fa-fw"></i> 2018软件工程期末测试
+                                    <span class="pull-right text-muted small"><em>2018.07.03</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-envelope fa-fw"></i> 2018软件测试期末测试
+                                    <span class="pull-right text-muted small"><em>2018.06.14</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <i class="fa fa-tasks fa-fw"></i> 2018图像处理期末测试
+                                    <span class="pull-right text-muted small"><em>2018.06.10</em>
+                                    </span>
+                                </a>
+                               
+                               
+                               
+                            </div>
+                            <!-- /.list-group -->
+                            <a href="#" class="btn btn-default btn-block">全部考试</a>
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                  
+                  
+                    <!-- /.panel .chat-panel -->
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+            <!-- /.row -->
            
         </div>
         <!-- /#page-wrapper -->
@@ -164,9 +348,14 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="../style/metisMenu/metisMenu.min.js"></script>
-
+    <!-- Morris Charts JavaScript -->
+    <script src="../style/raphael/raphael.min.js"></script>
+    <script src="../style/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="../style/js/sb-admin-2.js"></script>
+    
+   
 
 </body>
 

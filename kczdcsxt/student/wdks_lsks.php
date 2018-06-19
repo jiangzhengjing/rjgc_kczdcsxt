@@ -72,7 +72,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -170,9 +170,9 @@
                                     <tbody>
                                     <?php 
                                             include("conn.php");
-											$sql=mysql_query(" SELECT * FROM shijuan");
+											$sql1=mysql_query(" SELECT * FROM shijuan");
                                             $i = 0;
-                                            while($abc = mysql_fetch_assoc($sql))
+                                            while($abc = mysql_fetch_assoc($sql1))
                                             {
 												if($abc['user']==$user)
 												{
@@ -182,9 +182,10 @@
 												}
                                             }
                                             //var_dump($data);die; ?>
-                                            <?php
-                                            foreach ($data as $key => $value) {
+                                             <?php
+                                            foreach ((array)$data as $key => $value) {
                                             ?>
+                                               
                                                 <tr>
                                                     <td><input type="checkbox"></td>
                                                     <td><?php echo $value['sjmc'] ?></td>
@@ -192,7 +193,7 @@
                                                    <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_zxks.php">详情</a></button>
+                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> <a href="wdks_wdks_ksxq.php">详情</a></button>
                                                        
                                                     </div>
                                                 </div>

@@ -63,12 +63,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人中心</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php session_start();$user=$_SESSION['user'];echo $user;?></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -132,22 +132,6 @@
                                     </li>
                                     
                                  </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 公告管理</a>
-                            	
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">不知道</a>
-                                </li>
-                                <li>
-                                    <a href="#">退出登陆</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                     </ul>
                 </div>

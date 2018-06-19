@@ -63,12 +63,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人中心</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php session_start();$user=$_SESSION['user'];echo $user;?></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -133,22 +133,6 @@
                                     
                                  </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 公告管理</a>
-                            	
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">不知道</a>
-                                </li>
-                                <li>
-                                    <a href="#">退出登陆</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -178,12 +162,12 @@
                              <table class="table table-striped table-hover table-main">
                                     <thead>
                                         <tr>
-                                            <th class="table-check"><input type="checkbox" class="tpl-table-fz-check"></th>
-                                            <th class="table-ctt-sstk">所属题库</th>
-											<th class="table-ctt-stnd">试题难度</th>
-                                            <th class="table-ctt-sttg">试题题干</th>
-                                            <th class="table-ctt-cjr">创建人</th>
-                                            <th class="table-ctt-cz">操作</th>
+                                             <th class="table-check" style="width: 5%;"><input type="checkbox" class="tpl-table-fz-check"></th>
+                                            <th class="table-ctt-sstk" style="width: 10%;">所属题库</th>
+											<th class="table-ctt-stnd" style="width: 10%;">试题难度</th>
+                                            <th class="table-ctt-sttg" style="width: 50%;">试题题干</th>
+                                            <th class="table-ctt-cjr" style="width: 10%;">创建人</th>
+                                            <th class="table-ctt-cz" style="width: 20%;">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -224,7 +208,7 @@
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
                                                         <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 编辑</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 复制</button>
+                                                       
                                                         <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
                                                     </div>
                                                 </div>

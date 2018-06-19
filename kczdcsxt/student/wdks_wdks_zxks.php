@@ -72,7 +72,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -187,30 +187,32 @@
 											$j=0;
 											
 											$array_id=array();
-                                            foreach ($data as $key => $value) {$j++;$option="option".$j; ?>
-                                            <label> <?php echo  $value['id'],"、",$value['shiti_tigan'] ?></label>
+                                            for ($m=0;$m<10;$m++) {$j++;$option="option".$j;
+																   $k=rand(0,58);
+											 ?>
+                                            <label> <?php echo  $m+1,"、",$data [$k]['shiti_tigan'] ?></label>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios1" value="A" >A、<?php echo $value['shiti_xuanxiangA'] ?>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios1" value="A" >A、<?php echo $data [$k]['shiti_xuanxiangA'] ?>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios2" value="B">B、<?php echo $value['shiti_xuanxiangB'] ?>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios2" value="B">B、<?php echo $data [$k]['shiti_xuanxiangB'] ?>
                                                 </label>
                                             </div>
                                             <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios3" value="C">C、<?php echo $value['shiti_xuanxiangC'] ?>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios3" value="C">C、<?php echo $data [$k]['shiti_xuanxiangC'] ?>
                                                 </label>
                                             </div>
                                                 <div class="radio">
                                                 <label>
-                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios4" value="D">D、<?php echo $value['shiti_xuanxiangD'] ?>
+                                                    <input type="radio" name="<?php echo "$option" ?>" id="optionsRadios4" value="D">D、<?php echo $data [$k]['shiti_xuanxiangD'] ?>
                                                 </label>
                                             </div>
                                                 <?php
-												array_push($array_id,$value['id']);				 
+												array_push($array_id,$data [$k]['id']);				 
 												}?>
                                     <?php foreach($array_id as $value) {?>
                                      <input type="hidden" name="tijiao_id[]" value="<?php echo $value?>" />
@@ -243,8 +245,9 @@
                                             <?php
 											 $n=0;
 											$array_id1=array();
-                                            foreach ($data as $key => $value) { $n++;$opp="opp".$n ?>
-                                            <label><?php echo $key+1,"、",$value['shiti_tigan'] ?></label>
+                                            for($m=0;$m<10;$m++) { $n++;$opp="opp".$n;
+											$k=rand(0,27);?>
+                                            <label><?php echo $m+1,"、",$data [$k]['shiti_tigan'] ?></label>
                                             <div class="radio">
                                                 <label>
                                                     <input type="radio" name="<?php echo "$opp" ?>" id="optionsRadios1" value="T" >T
@@ -255,7 +258,7 @@
                                                     <input type="radio" name="<?php echo "$opp" ?>" id="optionsRadios2" value="F">F
                                                 </label>
                                             </div>
-                                            <?php array_push($array_id1,$value['id']);}?>
+                                            <?php array_push($array_id1,$data [$k]['id']);}?>
                                         </div>
                                     <?php foreach($array_id1 as $value) {?>
                                      <input type="hidden" name="tijiao_id1[]" value="<?php echo $value?>" />

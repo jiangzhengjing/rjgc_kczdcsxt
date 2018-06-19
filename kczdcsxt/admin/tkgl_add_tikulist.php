@@ -63,12 +63,12 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人中心</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> <?php session_start();$user=$_SESSION['user'];echo $user;?></a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -133,22 +133,6 @@
                                     
                                  </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-edit fa-fw"></i> 公告管理</a>
-                            	
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> 个人中心<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">不知道</a>
-                                </li>
-                                <li>
-                                    <a href="#">退出登陆</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -203,17 +187,17 @@
                                                 <tr>
                                                     <td><input type="checkbox"></td>
                                                     <td><?php echo $value['tiku_name'] ?></td>
-                                                    <td><a href="#"><?php echo $value['tiku_zhuangtai'] ?></a></td>
+                                                    <td><?php echo $value['tiku_zhuangtai'] ?></td>
                                                       <td>100</td>
                                                     <td><?php echo $value['tiku_chuangjianren'] ?></td>
                                                     <td><?php echo $value['tiku_zhchuangjianren'] ?></td>
                                                    <td>
                                                 <div class="btn-toolbar">
                                                     <div class="btn-group btn-group-xs">
-                                                        <button class="btn btn-default btn-xs text-secondary"><span class="icon-pencil-square-o"></span> 数据分析</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 修改</button>
-                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> 题库导出</button>
-                                                        <button class="btn btn-default btn-xs text-danger hide-sm-only"><span class="icon-trash-o"></span> 删除</button>
+                                                        
+                                                        <button class="btn btn-default btn-xs hide-sm-only"><span class="icon-copy"></span> <a href="tkgl_xg_tiku.php">修改</a></button>
+                                                       
+                                                        <input type="button" class="btn btn-default btn-xs text-danger hide-sm-only" value="删除" onclick="del(this)" />
                                                     </div>
                                                 </div>
                                             </td>
@@ -261,6 +245,15 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="../style/js/sb-admin-2.js"></script>
+<script type="text/javascript"> 
+// 创建删除函数
+function del(obj)
+{
+var tr=obj.parentNode.parentNode.parentNode.parentNode;
+tr.parentNode.removeChild(tr);
+}
+
+</script>
 
 </body>
 

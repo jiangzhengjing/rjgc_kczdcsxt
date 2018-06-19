@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -72,7 +72,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
+                        <li><a href="../login.php"><i class="fa fa-sign-out fa-fw"></i> 退出</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -159,52 +159,65 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           自我检测
+							<a href="zwjc_zwjc.php">单选题&nbsp;&nbsp;</a>
+                            <a href="zwjc_zwjc_duoxuan.php">多选题&nbsp;&nbsp;</a>
+                            <a href="zwjc_zwjc_panduan.php">判断题&nbsp;&nbsp;</a>
+                            <a href="zwjc_zwjc_jianda.php">简答题&nbsp;&nbsp;</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form class="form form-horizontal" >
-                                       <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">所属题库</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 <select class="form-control">
-                                                      <option >1</option>
-                                                      <option >2</option>
-                                                 </select>
+                                    <form class="form form-horizontal" action="zwjcdanxuan.php" method="post">
+                                       <?php 
+                                            include("conn.php");
+                                            $sql=mysql_query(" SELECT * FROM danxuan");
+                                            $i = 0;
+                                            while($abc = mysql_fetch_assoc($sql))
+                                            {
+                                                $data [$i]['shiti_tigan'] = $abc['shiti_tigan'];
+                                                $data [$i]['shiti_xuanxiangA'] = $abc['shiti_xuanxiangA'];
+                                                $data [$i]['id'] = $abc['Id'];
+                                                $data [$i]['shiti_xuanxiangB'] = $abc['shiti_xuanxiangB'];
+												
+												
+                                                $data [$i]['shiti_xuanxiangC'] = $abc['shiti_xuanxiangC'];
+                                                $data [$i]['shiti_xuanxiangD'] = $abc['shiti_xuanxiangD'];
+                                               
+                                                $i++;
+                                            }
+                                            //var_dump($data);die;?>
+                                          
+                                          
+                                        <div class="form-group" style="margin-left: 10px;">
+                                            <?php
+											$j=rand(0,58);?>
+                                            <label> <?php echo  $data [$j]['id'],"、",$data [$j]['shiti_tigan'] ?></label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="danxuan_daan" id="optionsRadios1" value="A" >A、<?php echo $data [$j]['shiti_xuanxiangA'] ?>
+                                                </label>
                                             </div>
-                                            
-                                        </div>
-                                       
-                                       <div class="form-group">
-                                            <label for="stlx" class="col-sm-3 form-label">难度</label>
-                                            
-                                            <div class="col-sm-9">
-                                                 <select class="form-control">
-                                                      <option >简单</option>
-                                                      <option >难</option>
-                                                 </select>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="danxuan_daan" id="optionsRadios2" value="B">B、<?php echo $data [$j]['shiti_xuanxiangB'] ?>
+                                                </label>
                                             </div>
-                                            
-                                        </div>
-                                   
-                                        </div>
-                                   
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="danxuan_daan" id="optionsRadios3" value="C">C、<?php echo $data [$j]['shiti_xuanxiangC'] ?>
+                                                </label>
+                                            </div>
+                                                <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="danxuan_daan" id="optionsRadios4" value="D">D、<?php echo $data [$j]['shiti_xuanxiangD'] ?>
+                                                </label>
+                                            </div>
+
+                                     <input type="hidden" name="tijiao_id" value="<?php echo $data [$j]['id']?>" />
+
                                       
-                                       
-                                 
-                                     
-                                 
-                                     <div class="col-lg-12">
-                                      
-                                     
-                                       <button type="submit" class="btn btn-default" style=" margin-left: 330px;">随机生成试卷</button>
-                                       
-                                        <button type="reset" class="btn btn-default" style=" margin-left: 30px;">撤销</button>
-                                       
-                                     </div>
+                                        </div>
+										<button type="submit" class="btn btn-default">下一题</button>
                                     </form>
                                 </div>
                               
